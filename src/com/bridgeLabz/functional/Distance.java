@@ -1,5 +1,5 @@
 package com.bridgeLabz.functional;
-import com.Util.functional.*;
+import Util.*;
 
 import Util.UtilClass;
 

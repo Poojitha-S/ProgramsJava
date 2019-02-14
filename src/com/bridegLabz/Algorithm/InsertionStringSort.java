@@ -1,11 +1,6 @@
 package com.bridegLabz.Algorithm;
 
-import java.util.*;
-
-
-
-
-import com.Util.functional.*;
+import java.util.Scanner;
 
 import Util.UtilClass;
 

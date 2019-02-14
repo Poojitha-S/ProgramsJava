@@ -1,8 +1,6 @@
 package com.bridegLabz.Algorithm;
 
 import java.util.Scanner;
-import com.Util.functional.*;
-
 import Util.UtilClass;
 public class SecreateNumber 
 {

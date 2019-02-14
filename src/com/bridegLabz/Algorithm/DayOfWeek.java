@@ -3,13 +3,9 @@ package com.bridegLabz.Algorithm;
 
 import java.util.Scanner;
 
-
-import com.Util.functional.*;
-
 import Util.UtilClass;
-
-import com.Util.functional.*;
-public class DayOfWeek {
+public class DayOfWeek 
+{
 	public static void main(String[] args)
 	{
 		Scanner sc=new Scanner(System.in);
