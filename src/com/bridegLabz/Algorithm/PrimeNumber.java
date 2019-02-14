@@ -1,10 +1,13 @@
 package com.bridegLabz.Algorithm;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Scanner;
 
-import com.Util.functional.UtilClass;
+import com.Util.functional.*;
+
+import Util.UtilClass;
 
 
 public class PrimeNumber 

@@ -2,6 +2,8 @@ package com.bridgeLabz.functional;
 
 import java.util.Scanner;
 
+import Util.UtilClass;
+
 public class PowerOfTwo 
 {
 	public static void main(String[] args) 
@@ -13,7 +15,7 @@ public class PowerOfTwo
 			do
 			{
 				input=args[0];
-			}while(!com.Util.functional.UtilClass.isNumeric(input));
+			}while(!UtilClass.isNumeric(input));
 			
 			int n=Integer.parseInt(input);
 			while(n>31)
@@ -22,7 +24,7 @@ public class PowerOfTwo
 				System.out.println("Enter the number again:");
 				n=sc.nextInt();
 			}
-			com.Util.functional.UtilClass.powerOfTwo(n);
+		UtilClass.powerOfTwo(n);
 		}
 		catch(Exception e)
 		{

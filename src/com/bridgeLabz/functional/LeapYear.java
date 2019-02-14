@@ -2,6 +2,8 @@ package com.bridgeLabz.functional;
 
 import java.util.Scanner;
 
+import Util.UtilClass;
+
 public class LeapYear {
 	public static void main(String[] args) 
 	{
@@ -14,14 +16,14 @@ public class LeapYear {
 			{
 				System.out.println("Enter the year");
 				input=sc.next();
-			}while(!com.Util.functional.UtilClass.isNumeric(input));
+			}while(!UtilClass.isNumeric(input));
 			
 			int year=Integer.parseInt(input);
 			
-			int num=com.Util.functional.UtilClass.getDigits(year);
+			int num=UtilClass.getDigits(year);
 			if(num==4)
 			{
-				boolean res=com.Util.functional.UtilClass.leap(year);
+				boolean res=UtilClass.leap(year);
 				if(res)
 				{
 					System.out.println(year+" is a leap year");

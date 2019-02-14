@@ -1,9 +1,8 @@
 package com.bridegLabz.Algorithm;
 
-import java.io.InputStream;
 import java.util.Scanner;
 
-import com.Util.functional.UtilClass;
+import Util.UtilClass;
 
 public class Anagram 
 {

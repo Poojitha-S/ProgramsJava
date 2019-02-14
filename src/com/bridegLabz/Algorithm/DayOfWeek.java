@@ -3,6 +3,11 @@ package com.bridegLabz.Algorithm;
 
 import java.util.Scanner;
 
+
+import com.Util.functional.*;
+
+import Util.UtilClass;
+
 import com.Util.functional.*;
 public class DayOfWeek {
 	public static void main(String[] args)
@@ -15,19 +20,19 @@ public class DayOfWeek {
 			{
 				input1=args[0];
 				
-			}while(!com.Util.functional.UtilClass.isNumeric(input1));
+			}while(!UtilClass.isNumeric(input1));
 			int day=Integer.parseInt(input1);	
 			do
 			{
 				input2=args[1];
 				
-			}while(!com.Util.functional.UtilClass.isNumeric(input2));
+			}while(!UtilClass.isNumeric(input2));
 			int month=Integer.parseInt(input2);
 			do
 			{
 				input3=args[2];
 				
-			}while(!com.Util.functional.UtilClass.isNumeric(input1));
+			}while(!UtilClass.isNumeric(input1));
 			int year=Integer.parseInt(input3);
 			int res=UtilClass.dayOfWeek(day,month, year);
 			String[] arr={"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};

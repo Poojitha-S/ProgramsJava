@@ -2,6 +2,8 @@ package com.bridgeLabz.functional;
 
 import java.util.Scanner;
 
+import Util.UtilClass;
+
 public class NthHormonicSum 
 {
 	public static void main(String[] args) 
@@ -14,7 +16,7 @@ public class NthHormonicSum
 			{
 				System.out.println("Enter the number");
 				input=sc.next();
-			}while(!com.Util.functional.UtilClass.isNumeric(input));
+			}while(!UtilClass.isNumeric(input));
 			
 			int n=Integer.parseInt(input);
 			while(n==0)
@@ -23,7 +25,7 @@ public class NthHormonicSum
 				System.out.println("Enter the number again:");
 				n=sc.nextInt();
 			}
-			double res=com.Util.functional.UtilClass.hormonicSum(n);
+			double res=UtilClass.hormonicSum(n);
 			System.out.println("Sum of "+n+"th hormonic number is "+res);
 		}
 		catch(Exception e)

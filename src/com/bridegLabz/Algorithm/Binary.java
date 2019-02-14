@@ -2,7 +2,9 @@ package com.bridegLabz.Algorithm;
 
 import java.util.Scanner;
 
-import com.Util.functional.UtilClass;
+import com.Util.functional.*;
+
+import Util.UtilClass;
 
 public class Binary
 {
@@ -18,7 +20,7 @@ public class Binary
 				input=sc.next();
 			}while(!UtilClass.isNumeric(input));
 			int decimal=Integer.parseInt(input);
-			String res=com.Util.functional.UtilClass.toBinary(decimal);
+			String res=UtilClass.toBinary(decimal);
 			System.out.println("Entered decimal equivalent binary number:");
 			System.out.println(res);
 		}

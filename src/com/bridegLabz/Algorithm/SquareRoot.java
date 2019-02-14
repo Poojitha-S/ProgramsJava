@@ -2,7 +2,10 @@ package com.bridegLabz.Algorithm;
 
 import java.util.Scanner;
 
-import com.Util.functional.UtilClass;
+
+import com.Util.functional.*;
+
+import Util.UtilClass;
 
 public class SquareRoot
 {
@@ -18,7 +21,7 @@ public class SquareRoot
 				input1=sc.next();
 			}while(!UtilClass.isNumeric(input1));
 			double c=Integer.parseInt(input1);
-			System.out.println(com.Util.functional.UtilClass.sqrtNewtons(c));
+			System.out.println(UtilClass.sqrtNewtons(c));
 		}
 		catch(Exception e)
 		{

@@ -1,5 +1,8 @@
 package com.bridgeLabz.functional;
 import com.Util.functional.*;
+
+import Util.UtilClass;
+
 public class Distance 
 {
 		public static void main(String[] args) 

@@ -2,7 +2,9 @@ package com.bridegLabz.Algorithm;
 
 import java.util.Scanner;
 
-import com.Util.functional.UtilClass;
+import com.Util.functional.*;
+
+import Util.UtilClass;
 
 public class Nibbles 
 {
@@ -20,7 +22,7 @@ public class Nibbles
 			}while(!UtilClass.isNumeric(input));
 			
 			int decimal=Integer.parseInt(input);
-			String res=com.Util.functional.UtilClass.toBinary(decimal);
+			String res=UtilClass.toBinary(decimal);
 			System.out.println("Binary value of "+decimal+" : "+res);
 			int swap=UtilClass.swapNibbles(decimal);
 			System.out.println(" Swapped binary    : "+swap);

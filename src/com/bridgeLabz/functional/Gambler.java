@@ -1,7 +1,11 @@
 package com.bridgeLabz.functional;
 
 import java.util.Scanner;
+
 import com.Util.functional.*;
+
+import Util.UtilClass;
+
 public class Gambler
 {
 	public static void main(String[] args)

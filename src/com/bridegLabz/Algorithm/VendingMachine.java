@@ -2,7 +2,10 @@ package com.bridegLabz.Algorithm;
 
 import java.util.Scanner;
 
-import com.Util.functional.UtilClass;
+
+import com.Util.functional.*;
+
+import Util.UtilClass;
 
 public class VendingMachine
 {
@@ -20,7 +23,7 @@ public class VendingMachine
 			int rup=Integer.parseInt(input1);
 			int[] typeOfNotes={1000,500,100,50,10,5,2,1};
 			if(rup>0)
-				com.Util.functional.UtilClass.vendingMachine(rup, typeOfNotes);
+				UtilClass.vendingMachine(rup, typeOfNotes);
 		}
 		catch(Exception e)
 		{

@@ -2,6 +2,8 @@ package com.bridgeLabz.functional;
 
 import java.util.Scanner;
 
+import Util.UtilClass;
+
 public class StringReplace 
 {
 	public static void main(String[] args)
@@ -15,7 +17,7 @@ public class StringReplace
 				System.out.println("Enter user name");
 				str2=sc.next();
 			}while(str2.length()<3);
-			System.out.println(com.Util.functional.UtilClass.stringReplace(str1, str2));
+			System.out.println(UtilClass.stringReplace(str1, str2));
 			sc.close();
 		}
 		catch(Exception e)

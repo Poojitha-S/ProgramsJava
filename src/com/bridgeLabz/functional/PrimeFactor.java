@@ -2,6 +2,8 @@ package com.bridgeLabz.functional;
 
 import java.util.Scanner;
 
+import Util.UtilClass;
+
 public class PrimeFactor {
 
 	public static void main(String[] args) {
@@ -14,10 +16,10 @@ public class PrimeFactor {
 			{
 				System.out.println("Enter the number");
 				input=sc.next();
-			}while(!com.Util.functional.UtilClass.isNumeric(input));
+			}while(!UtilClass.isNumeric(input));
 			
 			int n=Integer.parseInt(input);
-			com.Util.functional.UtilClass.primeFactors(n);
+			UtilClass.primeFactors(n);
 		}
 		catch(Exception e)
 		{

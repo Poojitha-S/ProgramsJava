@@ -1,4 +1,4 @@
-package com.Util.functional;
+package Util;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -183,13 +183,13 @@ public class UtilClass
 	/*********************************Sum of triplets*******************************/
 	/*
 	 * This method reads array of elements and determines numbers those sum is equal 
-	 * to zero of triplates
+	 * to zero of triplets
 	 */
 	public static int triplets(int[] b, int length)
 	{
 
 		int i,j,k,count =0;
-		System.out.println("Triplates whose sum is zero");
+		System.out.println("Triplets whose sum is zero");
 		for(i = 0 ;i<length-2;i++ )
 		{
 			for(j=i+1;j<length-1;j++)
@@ -469,57 +469,57 @@ public class UtilClass
 	    if (l < r) 
 	    { 
 	       // determine the middle point 
-	       int m = (l+r)/2; 
+	       int m=(l+r)/2; 
 	      // divide the left halves array into individual elements 
-	       sort(arr, l, m); 
+	       sort(arr,l,m); 
 	       // divide the right halves array into individual elements  
-	       sort(arr , m+1, r); 
+	       sort(arr,m+1,r); 
 	       //merge the divided array in sorted manner
-	       merge(arr, l, m, r); 
+	       merge(arr,l,m,r); 
 	     } 
 	 }
 	public static void merge(String arr[], int l, int m, int r) 
-    { 
-        int n1 = m - l + 1;//size of first array 
-        int n2 = r - m; //size of second array
+    { 	
+		int i=0,j=0; 
+		int k=l; 
+        int n1=m-l+1;//size of first array 
+        int n2=r-m; //size of second array
          //temp arrays 
-        String L[] = new String[n1]; 
-        String R[] = new String [n2]; 
+        String L[]=new String[n1]; 
+        String R[]=new String [n2]; 
         //Copy data to temp arrays
-        for (int i=0; i<n1; ++i) 
-            L[i] = arr[l + i]; 
-        for (int j=0; j<n2; ++j) 
-            R[j] = arr[m + 1+ j]; 
+        for(int i1=0;i1<n1;i1++) 
+            L[i1]=arr[l+i1]; 
+        for(int j1=0;j1<n2;j1++) 
+            R[j1]=arr[m+1+j1]; 
         // Merge the temp arrays
-        int i = 0, j = 0; 
-        int k = l; 
-        while (i < n1 && j < n2) 
+        while(i<n1 && j<n2) 
         { 
-            if (L[i].compareTo(R[j])<=0) 
+            if(L[i].compareTo(R[j])<=0) 
             { 
-                arr[k] = L[i]; 
+                arr[k]=L[i]; 
                 i++; 
             } 
             else
             { 
-                arr[k] = R[j]; 
+                arr[k]=R[j]; 
                 j++; 
             } 
             k++; 
         } 
   
         //Copy remaining elements of L[] if any 
-        while (i < n1) 
+        while(i<n1) 
         { 
-            arr[k] = L[i]; 
+            arr[k]=L[i]; 
             i++; 
             k++; 
         } 
   
         //Copy remaining elements of R[] if any 
-        while (j < n2) 
+        while(j<n2) 
         { 
-            arr[k] = R[j]; 
+            arr[k]=R[j]; 
             j++; 
             k++; 
         } 
@@ -758,12 +758,13 @@ public class UtilClass
 		for(int i=0;i<s.length()/2-1;i++)
 		{
 			char t=c[i];
-			c[i]=c[c.length-1-i];
+			c[i] =c[c.length-1-i];
 			c[c.length-1-i]=t;
 		}
 		s=new String(c);
 		return s;
 	}
+	/********************TO Decimal****************/
 	public static int toDecimal(int binaryNumber)
 	{
 		 int decimal = 0;
@@ -788,28 +789,31 @@ public class UtilClass
 	 */
 	public static boolean isPowerTwo(int num)
 	{
-		if (num == 0) 
+		if(num==0) 
 			return false; 
 
-		while (num != 1) 
+		while(num!=1) 
 		{ 
-			if (num % 2 != 0) 
+			if (num%2!=0) 
 				return false; 
-			num = num / 2; 
+			num=num/2; 
 		} 
 		return true; 
 	}
+	/***************************Is Numeric************************/
 	
 	public static boolean isNumeric(String str)
 	{
 		return str.matches("[0-9[+]]+");
 	}
+	/******************************Check Positive******************/
 	public static boolean getPositive(int num)
 	{
 		if(num<0)
 			return false;
 		return true;
 	}
+	/*************************Read String***************************/
 	public static String readStringArray()
 	{
 		Scanner sc=new Scanner(System.in);
@@ -827,13 +831,17 @@ public class UtilClass
 			 a[i]=sc.nextInt();
 		}
 		return a;
-	}public static void printArray(String arr[]) 
+	
+	}
+	/************************Print Array***************************/
+	public static void printArray(String arr[]) 
 	{ 
 	    int n = arr.length; 
 	    for (int i=0; i<n; ++i) 
 	        System.out.print(arr[i] + " "); 
 	    System.out.println(); 
 	} 
+	/***************************Get String******************/
 	public static String getString() 
 	{
 		Scanner sc=new Scanner(System.in);
@@ -845,6 +853,7 @@ public class UtilClass
 		}
 		return str;
 	}
+	/********************Get Digits*************************/
 	public static int getDigits(int num)
 	{
 		int count=0;

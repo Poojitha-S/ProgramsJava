@@ -2,6 +2,10 @@ package com.bridegLabz.Algorithm;
 
 import java.util.Scanner;
 
+import com.Util.functional.*;
+
+import Util.UtilClass;
+
 public class MonthlyPay {
 
 	public static void main(String[] args) 
@@ -14,21 +18,21 @@ public class MonthlyPay {
 			{
 				input1=args[0];
 				
-			}while(!com.Util.functional.UtilClass.isNumeric(input1));
+			}while(!UtilClass.isNumeric(input1));
 			int P=Integer.parseInt(input1);	
 			do
 			{
 				input2=args[1];
 				
-			}while(!com.Util.functional.UtilClass.isNumeric(input2));
+			}while(!UtilClass.isNumeric(input2));
 			int Y=Integer.parseInt(input2);
 			do
 			{
 				input3=args[2];
 				
-			}while(!com.Util.functional.UtilClass.isNumeric(input1));
+			}while(!UtilClass.isNumeric(input1));
 			double R=Double.parseDouble(input3);
-			double monthlyPay=com.Util.functional.UtilClass.monthlyPayment(P, Y, R);
+			double monthlyPay=UtilClass.monthlyPayment(P, Y, R);
 			System.out.println("Monthly payment :"+monthlyPay);
 		}
 		catch(Exception e)

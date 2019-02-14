@@ -1,10 +1,13 @@
 package com.bridegLabz.Algorithm;
 
 import java.io.File;
+
 import java.io.IOException;
 import java.util.Scanner;
 
 import com.Util.functional.*;
+
+import Util.UtilClass;
 
 public class WordBinarySearch
 {

@@ -1,8 +1,10 @@
 package com.bridgeLabz.functional;
 
 import java.util.Scanner;
+
 import com.Util.functional.*;
 
+import Util.UtilClass;
 public class TripletSum 
 {
 	public static void main(String[] args) 
@@ -23,7 +25,7 @@ public class TripletSum
 			{
 				a[i]=sc.nextInt();
 			}
-			com.Util.functional.UtilClass.triplets(a, n);
+			UtilClass.triplets(a, n);
 		}
 		catch(Exception e)
 		{
