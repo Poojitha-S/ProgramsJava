@@ -23,7 +23,6 @@ public class BankCashCounter {
 			}
 		}
 		System.out.println("\n"+"----People standing in queue are as follows-----");
-		//System.out.println( queue.toString() );
 		String[] name1=queue.toString().split(", ");
 		
 		for(int i=0;i<n;i++)

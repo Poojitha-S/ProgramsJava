@@ -2,46 +2,28 @@ package com.DataStructure;
 
 import java.util.Arrays;
 
-public class MyQueue<T> {
-
+public class MyQueue<T> 
+{
 	int size;
-
-	Object s[];		//create object array 
-
+	Object s[];		
 	int front,rear = -1;
-	
 	MyQueue(int size)
 	{
 		this.size=size;
-		
 		s=new Object[size];
 	}
-	
 	public MyQueue() {
 		// TODO Auto-generated constructor stub
 	}
-
-	/**
-	 * to check if the array(queue) is empty
-	 * @return boolean
-	 */
 	public boolean isempty()
 	{
 		if(rear==-1 && front==-1)
 		{
 			return true;			
-			//System.out.println("Queue is empty");
-
 		}	
 		else 
 			return false;	
 	}
-
-	/**
-	 * to add element from rear end 
-	 * @param o
-	 * @return : object
-	 */
 	public boolean enqueue(Object o)
 	{
 		if(rear==size-1)
@@ -56,10 +38,6 @@ public class MyQueue<T> {
 	{
 		return s;
 	}
-	/**
-	 * so to remove element from the Front end 
-	 * @return  :  object
-	 */
 	public Object dequeue()
 	{   
 		if(front==-1)
@@ -72,20 +50,12 @@ public class MyQueue<T> {
 		front++;
 		return e;
 	}
-	/**
-	 * print the queue 
-	 * @return : String
-	 *  
-	 */
 	public String toString()
 	{
 		return  Arrays.toString(s);
 	}
-
 	public int size() {
 		// TODO Auto-generated method stub
 		return size;
 	}
-	
-
 }

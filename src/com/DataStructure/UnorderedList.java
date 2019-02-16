@@ -87,12 +87,12 @@ public class UnorderedList<T> implements List<T>
 		Node<T> curr=null;
 		if(isEmpty())
 			System.out.println("List is empty");
-		else if(first.getData().equals(item) && first.getNext() == null)// one item list
+		else if(first.getData().equals(item) && first.getNext() == null)
 		{
 			first=null;
 			last=null;
 		}
-		else if(first.getData().equals(item) && first.getNext() != null)//update only first
+		else if(first.getData().equals(item) && first.getNext() != null)
 		{
 			temp=first;
 			first=first.getNext();
