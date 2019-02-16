@@ -11,7 +11,8 @@ public class TestUnorderedList {
 	un.add(2);
 	un.add(3);
 	un.add(4);
-	System.out.println(un.pop());
+	un.print();
+	/*System.out.println(un.pop());
 	un.add(5);
 	un.print();
 	System.out.println(un.search(0));
@@ -21,7 +22,12 @@ System.out.println(un.search(9));
 	un.append(56);
 	un.print();
 	System.out.println(un.size());
-	System.out.println(un.pop(4));
+	System.out.println(un.pop(4));*/
+	System.out.println("index"+un.index(2));
+	if(un.index(3)==-1)
+		System.out.println("-1");
+	else
+		System.out.println(un.index(3));
 	}
 
 }

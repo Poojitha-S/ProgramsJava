@@ -1,5 +1,10 @@
 package com.DataStructure;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  * @author admin1
  *
@@ -9,7 +14,7 @@ public class UnorderedList<T> implements List<T>
 {
 	private Node<T> first;//pointer to first node
 	private Node<T> last; //pinter to last node
-	public UnorderedList() 
+		public UnorderedList() 
 	{
 		this.first = null;
 		this.last = null;
@@ -33,7 +38,7 @@ public class UnorderedList<T> implements List<T>
 		System.out.println("Elements are:");
 		while(temp!=null)
 		{
-			System.out.print(temp.getData());
+			System.out.print(temp.getData()+"->");
 			temp=temp.getNext();
 		}
 		System.out.println();
@@ -55,6 +60,25 @@ public class UnorderedList<T> implements List<T>
 			}
 		}
 		return false;
+	}
+	public int index(T item) 
+	{
+		Node<T> temp=first;
+		int count=-1;
+		if(first==null && last==null)
+			return -1;
+		else
+		{
+			while(temp!=null)
+			{	++count;
+				if(temp.getData().equals(item))
+				{
+					break;
+				}
+				temp=temp.getNext();
+			}
+		}
+		return count;
 	}
 	@Override
 	public void remove(T item)
@@ -154,24 +178,6 @@ public class UnorderedList<T> implements List<T>
 		last.setNext(null);
 		return temp.getData();
 	}
-	public int index(T item) 
-	{
-		if(isEmpty())
-		{
-			System.out.println("List is empty...!");
-			return -1;
-		}
-		Node<T> curr=first;
-		int  count=-1;
-		int temp=0;
-		while(curr!=null)
-		{
-			count++;
-			if(curr.getData()==item)
-				temp=count;
-		}
-		return temp;
-	}
 	@Override
 	public T pop(int pos) 
 	{
@@ -205,6 +211,40 @@ public class UnorderedList<T> implements List<T>
 			temp=temp.getNext();
 		}
 		return null;		
+	}
+	public void writeToFile(UnorderedList<T> list,File f)
+	{
+		Node<T> temp=first;
+		BufferedWriter bw=null;
+		try
+		{
+			if(!list.isEmpty())
+			{
+				bw=new BufferedWriter(new FileWriter(f,false));
+				while(temp!=null)
+				{
+					bw.write(temp.getData()+" ");
+					temp=temp.getNext();
+				}
+				
+			}
+		}catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			if(bw!=null)
+			{
+				try{
+					bw.close();
+				}catch(IOException e)
+				{
+						e.printStackTrace();
+				}
+			}
+		}
+		
 	}
 
 }

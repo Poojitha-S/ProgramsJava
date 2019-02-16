@@ -4,7 +4,10 @@ public class Node<T> implements Comparable<T>
 {
 	private T data;
 	private Node<T> next;
-	
+	public Node() {
+		this.data = null;
+		this.next = null;
+	}
 	public Node(T data) {
 		super();
 		this.data = data;
