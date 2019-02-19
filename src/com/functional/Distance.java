@@ -1,4 +1,6 @@
 package com.functional;
+import java.util.InputMismatchException;
+
 import com.util.UtilClass;
 
 public class Distance 
@@ -12,9 +14,10 @@ public class Distance
 				double result=UtilClass.euclideanDistance(x, y);
 				System.out.println("the EuclideanDistance is:  "+result);
 			}
-			catch(Exception e)
+			catch(InputMismatchException e)
 			{
-				e.printStackTrace();
+				System.out.println("Input must be integer");
+				System.out.println();
 			}
 		}	
 	

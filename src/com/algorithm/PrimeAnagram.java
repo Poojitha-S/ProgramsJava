@@ -3,6 +3,7 @@ package com.algorithm;
 import java.util.ArrayList;
 
 import java.util.HashSet;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
@@ -35,7 +36,7 @@ public class PrimeAnagram
 			
 			System.out.println("the prime numbers that are Anagram Are: ");
 			
-			set=UtilClass.PrimeAnogram(l1);
+			set=UtilClass.PrimeAnagram(l1);
 			System.out.println(set);
 			
 			Set<String> pal=new HashSet<String>();
@@ -44,9 +45,10 @@ public class PrimeAnagram
 			pal=UtilClass.PrimePalindrome(l1);
 			System.out.println(pal);
 		}
-		catch(Exception e)
+		catch(InputMismatchException e)
 		{
-			e.printStackTrace();
+			System.out.println("Input must be integer");
+			System.out.println();
 		}
 	}
 }

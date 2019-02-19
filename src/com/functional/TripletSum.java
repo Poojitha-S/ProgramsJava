@@ -1,6 +1,7 @@
 package com.functional;
 
 import java.awt.List;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import javax.swing.text.html.HTMLDocument.Iterator;
@@ -21,14 +22,15 @@ public class TripletSum
 			{
 				a[i]=sc.nextInt();
 			}
-			int[] a1=UtilClass.triplets(a, n);
-			for(int i=0;i<a1.length-1;i++)
-				System.out.println(a1[i]);
+			//System.out.println("");
+			int count=UtilClass.triplets(a, n);
+			System.out.println("Number of triplets are:"+count);
 		      
 		}
-		catch(Exception e)
+		catch(InputMismatchException e)
 		{
-			e.printStackTrace();
+			System.out.println("Input must be integer");
+			System.out.println();
 		}
 		
 	}

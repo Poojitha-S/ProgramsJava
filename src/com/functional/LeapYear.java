@@ -1,5 +1,6 @@
 package com.functional;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.util.UtilClass;
@@ -31,9 +32,10 @@ public class LeapYear {
 				System.out.println("Year should be in $ digits");
 			}
 		}
-		catch(Exception e)
+		catch(InputMismatchException e)
 		{
-			e.printStackTrace();
+			System.out.println("Input must be integer");
+			System.out.println();
 		}
 	}
 }

@@ -1,5 +1,6 @@
 package com.algorithm;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.util.UtilClass;
@@ -26,9 +27,10 @@ public class Nibbles
 			else
 				System.out.println(k+" is not a power of 2");
 		}
-		catch(Exception e)
+		catch(InputMismatchException e)
 		{
-			e.printStackTrace();
+			System.out.println("Input must be integer");
+			System.out.println();
 		}
 	}
 }

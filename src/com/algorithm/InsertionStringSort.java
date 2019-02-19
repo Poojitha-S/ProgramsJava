@@ -1,5 +1,6 @@
 package com.algorithm;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.util.UtilClass;
@@ -20,10 +21,10 @@ public class InsertionStringSort
 				System.out.print(s+" ");
 			}
 		}
-		catch(Exception e)
+		catch(InputMismatchException e)
 		{
-			System.out.println("Enter only numbers");
-		
+			System.out.println("Input must be integer");
+			System.out.println();
 		}
 		
 	}	

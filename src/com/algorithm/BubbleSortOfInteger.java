@@ -1,5 +1,6 @@
 package com.algorithm;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.util.UtilClass;
@@ -29,9 +30,10 @@ public class BubbleSortOfInteger
 			}	
 			System.out.println();
 		}
-		catch(Exception e)
+		catch(InputMismatchException e)
 		{
-			e.printStackTrace();
+			System.out.println("Input must be integer");
+			System.out.println();
 		}
 	}
 }

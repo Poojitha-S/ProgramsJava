@@ -2,7 +2,7 @@ package com.algorithm;
 
 import java.util.Scanner;
 
-import com.util.UtilClass;
+import com.util.*;
 
 public class Anagram 
 {

@@ -1,5 +1,6 @@
 package com.algorithm;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.util.UtilClass;
@@ -12,12 +13,40 @@ public class SecreateNumber
 		try
 		{
 			int n=Integer.parseInt(args[0]);
-			int N=(int) Math.pow(2, n)-1;
-			UtilClass.secretNumber(N);
+			int mid=0;
+			int low=0;
+			int high=n-1;
+			
+			int count=0;
+			Scanner sc1=new Scanner(System.in);
+			int res=0;
+			while(res!=3)
+			{
+				System.out.println("is "+ mid +" your secret number ?" );
+				System.out.println("press 1: if your secret number less than "+mid+" number");
+				System.out.println("press 2: if your secret number greater than "+mid+" number");
+				System.out.println("press 3: if your secret number is "+mid+" number");
+		
+				res=sc1.nextInt();
+				if(res==1)
+				{
+					high=mid-1;
+					mid=(low+high)/2;
+		
+				}
+				else if(res==2)
+				{
+					low=mid+1;
+					mid=(low+high)/2;
+				}
+			}
+			System.out.println("your number is "+mid );
+			sc1.close();
 		}
-		catch(Exception e)
+		catch(InputMismatchException e)
 		{
-			e.printStackTrace();
+			System.out.println("Input must be integer");
+			System.out.println();
 		}
 	}
 }

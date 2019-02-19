@@ -1,5 +1,6 @@
 package com.algorithm;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.util.UtilClass;
@@ -17,11 +18,10 @@ public class MonthlyPay {
 			double monthlyPay=UtilClass.monthlyPayment(P, Y, R);
 			System.out.println("Monthly payment :"+monthlyPay);
 		}
-		catch(Exception e)
+		catch(InputMismatchException e)
 		{
-			System.out.println("Enter only numbers");
-			e.printStackTrace();
-		
+			System.out.println("Input must be integer");
+			System.out.println();
 		}
 
 	}

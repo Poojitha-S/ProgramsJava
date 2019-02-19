@@ -2,6 +2,9 @@ package com.datastructure;
 
 import java.util.Scanner;
 
+import com.exception.Account;
+import com.exception.InSufficientFundException;
+
 public class BankCashCounter {
 
 	public static void main(String[] args) throws InSufficientFundException {

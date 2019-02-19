@@ -1,4 +1,4 @@
-package com.datastructure;
+package com.exception;
 
 public class InSufficientFundException extends Throwable {
 	 /**

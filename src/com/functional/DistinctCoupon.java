@@ -1,4 +1,5 @@
 package com.functional;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -11,19 +12,14 @@ public class DistinctCoupon
 		Scanner sc=new Scanner(System.in);
 		try
 		{
-			String input;
-			do
-			{
-				System.out.println("Enter the coupon number");
-				input=sc.next();
-			}while(!UtilClass.isNumeric(input));
-			
-			int num=Integer.parseInt(input);
+			System.out.println("Enter the coupon number");			
+			int num=sc.nextInt();
 			System.out.println(UtilClass.distinctCoupon(num));
 		}
-		catch(Exception e)
+		catch(InputMismatchException e)
 		{
-			e.printStackTrace();
+			System.out.println("Input must be integer");
+			System.out.println();
 		}
 			
 	}

@@ -1,4 +1,6 @@
 package com.algorithm;
+import java.util.*;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.util.UtilClass;
@@ -13,12 +15,24 @@ public class VendingMachine
 			System.out.println("Enter the amount in rupees:");
 			int rup=sc.nextInt();
 			int[] typeOfNotes={1000,500,100,50,10,5,2,1};
-			if(rup>0)
-				UtilClass.vendingMachine(rup, typeOfNotes);
+			int[] notes= UtilClass.vendingMachine(rup, typeOfNotes);
+			System.out.println("------------------");
+			System.out.println("Notes : NumofNotes");
+			System.out.println("------------------");
+			for(int i=0;i<notes.length;i++)
+			{
+				int res=rup/typeOfNotes[i];
+				if(res>0)
+				{
+				if(notes[i]!=0)
+					System.out.println(notes[i]+":"+typeOfNotes[i]);	
+				}
+			}
 		}
-		catch(Exception e)
+		catch(InputMismatchException e)
 		{
-			e.printStackTrace();
+			System.out.println("Input must be integer");
+			System.out.println();
 		}	
 	}
 }

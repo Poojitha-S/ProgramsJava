@@ -1,6 +1,7 @@
 package com.algorithm;
 
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.util.UtilClass;
@@ -18,11 +19,10 @@ public class DayOfWeek
 			String[] arr={"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
 			System.out.println("Day on "+day+(char)47+month+(char)47+year+" is : "+arr[res]);
 		}
-		catch(Exception e)
+		catch(InputMismatchException e)
 		{
-			System.out.println("Enter only numbers");
-			e.printStackTrace();
-		
+			System.out.println("Input must be integer");
+			System.out.println();
 		}
 	}
 }

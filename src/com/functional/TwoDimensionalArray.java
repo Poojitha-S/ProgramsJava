@@ -1,6 +1,7 @@
 package com.functional;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.util.UtilClass;
@@ -32,9 +33,10 @@ public class TwoDimensionalArray
 				pw.println();
 			}
 		}
-		catch(Exception e)
+		catch(InputMismatchException e)
 		{
-			e.printStackTrace();
+			System.out.println("Input must be integer");
+			System.out.println();
 		}
 	    
 	 }

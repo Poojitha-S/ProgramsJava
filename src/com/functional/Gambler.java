@@ -1,5 +1,6 @@
 package com.functional;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.util.UtilClass;
@@ -29,9 +30,10 @@ public class Gambler
 			else
 				System.out.println("Stake should be less the goal and greater than zero");
 		}
-		catch(Exception e)
+		catch(InputMismatchException e)
 		{
-			e.printStackTrace();
+			System.out.println("Input must be integer");
+			System.out.println();
 		}
 	}
 }

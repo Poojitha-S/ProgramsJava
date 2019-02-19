@@ -1,5 +1,6 @@
 package com.functional;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.util.UtilClass;
@@ -22,9 +23,10 @@ public class NthHormonicSum
 			double res=UtilClass.hormonicSum(n);
 			System.out.println("Sum of "+n+"th hormonic number is "+res);
 		}
-		catch(Exception e)
+		catch(InputMismatchException e)
 		{
-			e.printStackTrace();
+			System.out.println("Input must be integer");
+			System.out.println();
 		}
 	}
 

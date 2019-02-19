@@ -1,6 +1,7 @@
 package com.functional;
 
 import java.awt.List;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.util.UtilClass;
@@ -20,9 +21,10 @@ public class PowerOfTwo
 			for(int i=0;i<pow.length;i++)
 				System.out.println("2^"+i+" = " + pow[i]);
 		}
-		catch(Exception e)
+		catch(InputMismatchException e)
 		{
-			e.printStackTrace();
+			System.out.println("Input must be integer");
+			System.out.println();
 		}
 	}
 }

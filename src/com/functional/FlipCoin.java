@@ -1,5 +1,6 @@
 package com.functional;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.util.UtilClass;
@@ -26,10 +27,10 @@ public class FlipCoin
 			System.out.println("Percentage of tails in "+flips+" flips");
 			System.out.printf("%.2f\n", percentTails);
 		}
-		catch(Exception e)
+		catch(InputMismatchException e)
 		{
-			System.out.println("Enter only numbers");
-		
+			System.out.println("Input must be integer");
+			System.out.println();
 		}
 	}
 }

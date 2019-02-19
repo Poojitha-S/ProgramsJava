@@ -1,7 +1,7 @@
 package com.algorithm;
 
 import java.util.ArrayList;
-
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -26,9 +26,10 @@ public class PrimeNumber
 				System.out.print(num+" ");
 			}
 		}
-		catch(Exception e)
+		catch(InputMismatchException e)
 		{
-			e.printStackTrace();
+			System.out.println("Input must be integer");
+			System.out.println();
 		}
 	}
 }

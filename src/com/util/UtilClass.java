@@ -9,6 +9,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -16,6 +17,8 @@ import java.util.List;
 import java.util.Random;
 public class UtilClass
 {
+	private static int[] temps;
+
 	/**********************************String Replace******************************/
 	/*
 	 * This method replace the specified string with another string using replace() method.
@@ -65,7 +68,6 @@ public class UtilClass
 	{
          int power = 1;
          int[] temp=new int[n+1];
-         System.out.println("Table of power of two");
          //Looping over n times
          for(int i=0;i<=n;i++)
          {
@@ -164,12 +166,9 @@ public class UtilClass
 	 * This method reads array of elements and determines numbers those sum is equal 
 	 * to zero of triplets
 	 */
-	public static int[] triplets(int[] b, int length)
+	public static int triplets(int[] b, int length)
 	{
-
 		int i,j,k,count =0;
-	//	List li=new ArrayList();
-		int[] a=null;
 		System.out.println("Triplets whose sum is zero");
 		for(i = 0 ;i<length-2;i++ )//1, 4, 45, 6, 10, 8
 		{
@@ -178,16 +177,14 @@ public class UtilClass
 				for(k=j+1;k<length;k++)
 				{
 					if(b[i]+b[j]+b[k]==0)
-					{
-						a[i]=b[i];
-						a[j]=b[j];
-						a[k]=b[k];
-						
+					{						
+						System.out.println(b[i]+" "+b[j]+" "+b[k]);
+						count++;
 					}
 				}
 			}
 		}
-		return a;
+return count;
 	} 
 
 	/*******************************Euclidean Distance***************************************/
@@ -225,26 +222,10 @@ public class UtilClass
 	 * Root 1 of x = (-b + sqrt(delta))/(2*a)
 	 * Root 2 of x = (-b - sqrt(delta))/(2*a)
 	 */
-	public static double[] quadratic(double a,double b,double c)
+	public static  double quadraticDetla(double a,double b,double c)
 	{
-		double[] root=new double[2];
 		double delta=(b*b)-(4*a*c);
-		if(delta>0)
-		{
-			System.out.println("Roots are real and unequal");
-			root[0]=-b+(Math.sqrt(delta))/(2*a);
-			root[1]=-b-(Math.sqrt(delta))/(2*a);
-		}
-		else if(delta==0)
-		{
-			System.out.println("Roots are real and equal");
-			root[0]=(int)(-b/(2*a));						
-		}
-		else
-		{
-			System.out.println("roots are imaginary");
-		}
-		return root;
+		return delta;
 	}
 	/*****************************Wind Chill*******************************/
 	/*
@@ -319,7 +300,7 @@ public class UtilClass
 	  * One prime number is an anagram of another if the second is simply a 
 	  * rearrangement of the first.
 	  */
-	public static Set<String> PrimeAnogram(List<String> li)
+	public static Set<String> PrimeAnagram(List<String> li)
 	{
 		Set<String>set=new HashSet<String>();
 		for(int i=0;i<li.size();i++)
@@ -506,44 +487,6 @@ public class UtilClass
             k++; 
         } 
     }
-	/******************************Find Screte Number**************************/
-	/*
-	 * This method finds th secrete number takes a command-line argument N,
-	 *  asks you to think of a number between 0 and N-1, where N = 2^n, 
-	 *  and always guesses the answer with n questions.
-
-	 */
-	public static void secretNumber(int range)
-	{
-		int low=0;
-		int high=range-1;
-		int mid=0;
-		int count=0;
-		Scanner sc1=new Scanner(System.in);
-		int res=0;
-		while(res!=3)
-		{
-			System.out.println("is "+ mid +" your secret number ?" );
-			System.out.println("press 1: if your secret number less than "+mid+" number");
-			System.out.println("press 2: if your secret number greater than "+mid+" number");
-			System.out.println("press 3: if your secret number is "+mid+" number");
-	
-			res=sc1.nextInt();
-			if(res==1)
-			{
-				high=mid-1;
-				mid=(low+high)/2;
-	
-			}
-			else if(res==2)
-			{
-				low=mid+1;
-				mid=(low+high)/2;
-			}
-		}
-		System.out.println("your number is "+mid );
-		sc1.close();
-	}
 	/*************************Binary Search word from word list*****************/
 	/*
 	 * Read in a list of words from File. Then prompt the user to enter a word to search the list.
@@ -599,27 +542,22 @@ public class UtilClass
 	 * of minimum Note needed to give the change and second list of Rs Notes
 	 * that would given in the Change.
 	 */
-	public static int vendingMachine (int rup,int[] notes)
+	public static int[] vendingMachine (int rup,int[] notes)
 	{	
-		int total=0;
-		if(rup==0)
-			return -1;
-		else
+		int total;
+		int[] temp=new int[notes.length];
+		for(int i=0;i<notes.length;i++ )
 		{
-			System.out.println("------------------");
-			System.out.println("Notes : NumofNotes");
-			System.out.println("------------------");
-			for(int i=0;i<notes.length;i++ )
+			total=rup/notes[i];// total num of notes 
+			if(total>0)// notes present or not
 			{
-				total=rup/notes[i];// total num of notes 
-				if(total>0)// notes present or not
-				{
-					System.out.println(notes[i]+" : "+total);
-				}
-				rup=rup%notes[i];//Gives number of paticular notes 
+				//System.out.println(notes[i]+" : "+total);
+				temp[i]=total;
 			}
+			rup=rup%notes[i];//Gives number of particular notes 
 		}
-	return rup;
+		
+	return temp;
 	}
 	/*******************************Day Of Week*****************************/
 	/*
@@ -727,9 +665,8 @@ public class UtilClass
 	{
 		String binary=toBinary(Number);
 		String swapnib=UtilClass.SwapNib(binary);
-		//System.out.println("Swapped binary:"+swapnib);
 		Integer i=new Integer(swapnib);
-		return i.valueOf(i);
+		return Integer.valueOf(i);
 	}
 	public static String SwapNib(String s)
 	{
@@ -779,19 +716,6 @@ public class UtilClass
 		} 
 		return true; 
 	}
-	/***************************Is Numeric************************/
-	
-	public static boolean isNumeric(String str)
-	{
-		return str.matches("[0-9[+]]+");
-	}
-	/******************************Check Positive******************/
-	public static boolean getPositive(int num)
-	{
-		if(num<0)
-			return false;
-		return true;
-	}
 	/*************************Read String***************************/
 	public static String readStringArray()
 	{
@@ -820,18 +744,7 @@ public class UtilClass
 	        System.out.print(arr[i] + " "); 
 	    System.out.println(); 
 	} 
-	/***************************Get String******************/
-	public static String getString() 
-	{
-		Scanner sc=new Scanner(System.in);
-		String str = sc.next();
-		while(str.trim().equals("") || str == null) 
-		{
-			System.out.println("Enter a valid string");
-			str = sc.next();
-		}
-		return str;
-	}
+	
 	/********************Get Digits*************************/
 	public static int getDigits(int num)
 	{
