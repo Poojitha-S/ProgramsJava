@@ -97,15 +97,21 @@ public class UtilClass
 	public static List<Integer> primeFactors(int n) 
 	{ 	
 		List<Integer> fact = new ArrayList<>();  
-		for (int i=2;i*i<=n;i++)
-		{
-	        if (n%i==0) 
-	        {
-	           fact.add(i); // Add prime factor in Array List
-	            n=n/i;
-	            i--;
-	        }
-		}
+		while(n%2==0) 
+		{ 
+			fact.add(2);
+			n/=2; 
+		} 
+		for(int i=3;i*i<=n;i++) 
+		{ 
+			while(n%i==0) 
+			{ 
+				fact.add(i);
+				n/=i; 
+			} 
+		} 
+		if(n>2) 
+			fact.add(n);
     return fact;
 
 	}
@@ -664,11 +670,11 @@ return count;
 	public static int swapNibbles(int Number)
 	{
 		String binary=toBinary(Number);
-		String swapnib=UtilClass.SwapNib(binary);
+		String swapnib=UtilClass.swapNib(binary);
 		Integer i=new Integer(swapnib);
 		return Integer.valueOf(i);
 	}
-	public static String SwapNib(String s)
+	public static String swapNib(String s)
 	{
 		char[] c=s.toCharArray();
 		for(int i=0;i<s.length()/2-1;i++)
