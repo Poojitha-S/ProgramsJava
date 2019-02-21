@@ -98,11 +98,13 @@ public class UtilClass
 	public static List<Integer> primeFactors(int n) 
 	{ 	
 		List<Integer> fact = new ArrayList<>();  
+		//for even numbers
 		while(n%2==0) 
 		{ 
 			fact.add(2);
 			n/=2; 
 		} 
+		//for odd numbers
 		for(int i=3;i*i<=n;i++) 
 		{ 
 			while(n%i==0) 
@@ -111,6 +113,9 @@ public class UtilClass
 				n/=i; 
 			} 
 		} 
+		/*if n is a prime number and is greater than 2, 
+		 * then n will not become 1 by above two steps
+		 */
 		if(n>2) 
 			fact.add(n);
     return fact;
@@ -177,7 +182,7 @@ public class UtilClass
 	{
 		int i,j,k,count =0;
 		System.out.println("Triplets whose sum is zero");
-		for(i = 0 ;i<length-2;i++ )//1, 4, 45, 6, 10, 8
+		for(i = 0 ;i<length-2;i++ )
 		{
 			for(j=i+1;j<length-1;j++)
 			{
@@ -186,7 +191,7 @@ public class UtilClass
 					if(b[i]+b[j]+b[k]==0)
 					{						
 						System.out.println(b[i]+" "+b[j]+" "+b[k]);
-						count++;
+						count++;//count number of triplets
 					}
 				}
 			}
@@ -212,7 +217,8 @@ return count;
 	 */
 	public static long startTime()
 	{		
-			return System.nanoTime();
+			return System.nanoTime();//Returns the current value of the running JVM's
+			//in nanoseconds.
 	}
 	public static long endTime()
 	{
@@ -330,9 +336,10 @@ return count;
 	public static Set<String> PrimePalindrome(List<String>list)
 	{
 		Set<String> pal=new HashSet<String>();
-		java.util.Iterator<String> it= list.iterator();
+		java.util.Iterator<String> it= list.iterator();//Traverse through set
 		while(it.hasNext())
 		{
+			//reversing of string
 			String str=it.next();
 			String rev="";
 			int len=str.length();
@@ -340,6 +347,7 @@ return count;
 			{
 				rev=rev+str.charAt(i);
 			}
+			//checking palindrome or not
 			if(str.equals(rev))
 				pal.add(str);	
 		}
@@ -393,8 +401,10 @@ return count;
 		
 			for(int j=i;j>0;j--)
 			{
+				//Putting element to proper position
 				if(array[j-1].compareTo(array[j])>0)
 				{
+					//swapping
 					T temp=array[j-1];
 					array[j-1]=array[j];
 					array[j]=temp;
@@ -416,8 +426,8 @@ return count;
 		{
 			for(int j=0;j<array.length-1;j++)
 			{
-				if(array[j].compareTo(array[j+1])>0)
-				{
+				if(array[j].compareTo(array[j+1])>0)//comparing adjecent element
+				{//swapping
 					T temp=array[j];
 					array[j]=array[j+1];
 					array[j+1]=temp;
@@ -508,12 +518,12 @@ return count;
 				br=new BufferedReader(new FileReader(path));
 				String line="";
 				String str="";
-				while((str=br.readLine())!=null)
-				{
+				while((str=br.readLine())!=null)//reaing from file
+				{//storing in words in varialbe line
 					line=line+str;
 				}
-				String[] words=line.split(" ");
-				Arrays.sort(words);
+				String[] words=line.split(" ");//array of words
+				Arrays.sort(words);//sorting of words
 				System.out.println("Sorted file:");
 				for(String s: words)
 				{
@@ -522,7 +532,7 @@ return count;
 				System.out.println();
 				System.out.println();
 				
-			 res=UtilClass.genericBinarySearch(words, word);
+			 res=UtilClass.genericBinarySearch(words, word);//searching of key
 
 			}catch(IOException e)
 			{
@@ -533,7 +543,7 @@ return count;
 				if(br!=null)
 				{
 					try{
-						br.close();
+						br.close();//closing file
 					}catch(IOException e)
 					{
 							e.printStackTrace();
@@ -577,7 +587,7 @@ return count;
 	 */
 
 	public static int dayOfWeek(int d, int m, int y) 
-	{			
+	{	//formulae to claculate day
 		int y0=y-(14-m)/12;
 		int x=y0+(y0/4)-y0/100+y0/400;
 		int m0=m+12*((14-m)/12)-2;
@@ -670,13 +680,14 @@ return count;
 	 */
 	public static int swapNibbles(int Number)
 	{
-		String binary=toBinary(Number);
-		String swapnib=UtilClass.swapNib(binary);
-		Integer i=new Integer(swapnib);
-		return Integer.valueOf(i);
+		String binary=toBinary(Number);//converting to binary
+		String swapnib=UtilClass.swapNib(binary);//swapping of nibbles
+		Integer i=new Integer(swapnib);//boxing
+		return Integer.valueOf(i);//unboxing
 	}
 	public static String swapNib(String s)
 	{
+		//swapping
 		char[] c=s.toCharArray();
 		for(int i=0;i<s.length()/2-1;i++)
 		{
@@ -684,7 +695,7 @@ return count;
 			c[i] =c[c.length-1-i];
 			c[c.length-1-i]=t;
 		}
-		s=new String(c);
+		s=new String(c);//storing chars as string
 		return s;
 	}
 	/********************TO Decimal****************/
@@ -697,7 +708,7 @@ return count;
 		      if(binaryNumber == 0)
 		      		break;
 		       else
-		       {
+		       {//converting binary to decimal
 		          int temp = binaryNumber%10;
 		          decimal += temp*Math.pow(2, b);
 		          binaryNumber = binaryNumber/10;
@@ -717,7 +728,7 @@ return count;
 
 		while(num!=1) 
 		{ 
-			if (num%2!=0) 
+			if (num%2!=0) //if num is not divisible by 2 it is not a power of two
 				return false; 
 			num=num/2; 
 		} 
@@ -756,12 +767,11 @@ return count;
 	public static int getDigits(int num)
 	{
 		int count=0;
-	        while(num != 0)
-	        {
-	            num /= 10;
-	            ++count;
-	        }
-
+	    while(num!=0)
+	    {
+	       num/=10;
+	       ++count;
+	    }
 		return count;
 	}
 	/**********************Hash Function*************************/
