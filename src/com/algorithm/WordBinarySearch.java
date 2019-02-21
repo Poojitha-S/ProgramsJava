@@ -14,7 +14,7 @@ public class WordBinarySearch
 		Scanner sc=new Scanner(System.in);
 		try
 		{
-		String path="/home/admin1/Desktop/Sample.txt";
+		String path="/home/admin1/Desktop/Files/Sample.txt";
 		File f=new File(path);
 		if(path==null) 
 			throw new IllegalAccessException("Path is incorrect");

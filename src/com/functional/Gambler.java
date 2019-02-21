@@ -20,7 +20,7 @@ public class Gambler
 			int games=sc.nextInt();
 			if(stake>0 && stake<goal)
 			{
-				int win=UtilClass.gambler(stake,goal,games);
+				double win=(int)UtilClass.gambler(stake,goal,games);
 				double winPer=win*100/(games);
 				double lossPer=100-winPer;
 				System.out.println("The number of wins are "+win+", out of "+games+" bets");

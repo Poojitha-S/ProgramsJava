@@ -1,9 +1,11 @@
 package com.util;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -17,7 +19,6 @@ import java.util.List;
 import java.util.Random;
 public class UtilClass
 {
-	private static int[] temps;
 
 	/**********************************String Replace******************************/
 	/*
@@ -119,13 +120,13 @@ public class UtilClass
 	/*
 	 * This method shows the simulation of gambling game using stake,goal and no of games as factors.
 	 */
-	public static int gambler(int stake,int goal,int games)
+	public static double gambler(int stake,int goal,int games)
 	{
-		int win=0; //Total number game wins
-		float n;
+		double win=0; //Total number game wins
+		double n;
 		while(games!=0) 
 		{
-			n=(float) Math.random();
+			n= Math.random();
 			if(n>0.5) //He/she wins that particular bet
 			{
 				win++;
@@ -763,4 +764,62 @@ return count;
 
 		return count;
 	}
+	/**********************Hash Function*************************/
+	public static int hashFunction(int num) {
+		int reminder=num%11;
+		return reminder;
+	}
+	/*********************String Array To Integer Array**************/
+	public static int[] stringToIntArray(String[] str )
+	{
+		int[] arr=new int[str.length];
+		for(int i=0;i<str.length;i++)
+			arr[i]=Integer.parseInt(str[i]);
+		return arr;
+	}
+	/**********************Read From File***********************/
+	public static String[] readFromFile(File file) 
+	{
+		String[] word = null;
+		String line="";
+		try(BufferedReader br=new BufferedReader(new FileReader(file)))
+		{
+			String temp="";
+			while((line=br.readLine())!=null)
+			{
+				temp+=line;
+			}
+			word=temp.split(" ");
+		}
+		catch(FileNotFoundException e)
+		{
+			e.printStackTrace();			
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		return word;
+	}
+	/****************************Write To File
+	 * @throws IOException ************************/
+	public static void writeToFile(int[] list,File file) throws IOException
+	{
+		if(list==null && list.length==0)
+			return;
+		try(BufferedWriter w=new BufferedWriter(new FileWriter(file)))
+		{
+			for(int i=0;i<list.length;i++)
+				w.write(list[i]+" ");
+		}
+		catch(FileNotFoundException e)
+		{
+			e.printStackTrace();			
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
 }

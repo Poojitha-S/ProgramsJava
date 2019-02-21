@@ -14,7 +14,7 @@ public class LinkedListSerach
 		BufferedReader br=null;
 		try
 		{
-		String path="/home/admin1/Desktop/linkedSample.txt";
+		String path="/home/admin1/Desktop/Files/linkedSample.txt";
 		File f=new File(path);
 		if(path==null) 
 			throw new IllegalAccessException("Path is incorrect");

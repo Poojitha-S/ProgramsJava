@@ -12,6 +12,7 @@ public class TestUnorderedList {
 	un.add(3);
 	un.add(4);
 	un.print();
+	System.out.println("pop="+un.pop());
 	/*System.out.println(un.pop());
 	un.add(5);
 	un.print();
