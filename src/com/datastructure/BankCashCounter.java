@@ -6,9 +6,10 @@ import java.util.Scanner;
 import com.exception.Account;
 import com.exception.InSufficientFundException;
 
-public class BankCashCounter {
-
-	public static void main(String[] args) throws InSufficientFundException {
+public class BankCashCounter
+{
+	public static void main(String[] args) throws InSufficientFundException 
+	{
 		Scanner sc  = new Scanner(System.in);
 		int amount,balance;
 		Account a=new Account();
@@ -28,7 +29,6 @@ public class BankCashCounter {
 		}
 		System.out.println("\n"+"----People standing in queue are as follows-----");
 		String[] name1=queue.toString().split(", ");
-		
 		for(int i=0;i<n;i++)
 		{
 			String res=name1[i].replaceAll("[^\\w]", " ");

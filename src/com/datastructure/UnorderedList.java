@@ -4,67 +4,63 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-
-/**
- * @author admin1
- *
- * @param <T>
- */
 public class UnorderedList<T> implements List<T>
 {
 	private Node<T> first;//pointer to first node
 	private Node<T> last; //pinter to last node
-		public UnorderedList() 
+	public UnorderedList() 
 	{
-		this.first = null;
-		this.last = null;
+		this.first = null;//Initializing first with null
+		this.last = null;//Initializing last with null
 	}
 	@Override
 	public void add(T ele) 
 	{
-		Node<T> node=new Node<T>(ele);
-		if(first==null && last==null)
-			first=last=node;
+		Node<T> node=new Node<T>(ele);//creating node with element
+		if(first==null && last==null)//check if any node exist or not
+			first=last=node;//assigning fist and last to node  
 		else
 		{
-			last.setNext(node);
-			last=node;
+			last.setNext(node);//Linking last's next to 
+			last=node;//Making new node as last
 		}
 	}
 	@Override
 	public void remove(T item)
 	{
 		Node<T>	temp=null;
-		Node<T> curr=null;
+		Node<T> prev=null;
 		if(isEmpty())
 			System.out.println("List is empty");
-		else if(first.getData().equals(item) && first.getNext() == null)
-		{
+		//For only one node
+		else if(first.getData().equals(item) && first.getNext() == null)//Checking for only first node
+		{//Releasing first node initializing with null
 			first=null;
 			last=null;
-		}
+		}//Searching ele is first element
 		else if(first.getData().equals(item) && first.getNext() != null)
 		{
+			//Storing first node in temp and realizing temp
 			temp=first;
 			first=first.getNext();
 			temp=null;
-		}
+		}//Other than first element
 		else 
 		{
 			temp=first;
-			curr=first.getNext();
-			while(curr!=null)
+			prev=first.getNext();//Pointing to previous node of temp
+			while(prev!=null)
 			{
-				if(curr.getData().equals(item))
+				if(prev.getData().equals(item))//Checking previous node is searching node                    
 				{
-					temp.setNext(curr.getNext());
-					curr.setNext(null);
+					temp.setNext(prev.getNext());
+					prev.setNext(null);
 					break;
 				}
 				else 
 				{
-					temp=curr;
-					curr=curr.getNext();
+					temp=prev;
+					prev=prev.getNext();
 				}
 			}
 		}
@@ -73,12 +69,11 @@ public class UnorderedList<T> implements List<T>
 	@Override
 	public void print() 
 	{
-		Node<T> temp=first;
-		System.out.println("Elements are:");
+		Node<T> temp=first;//To start travel from first node
 		while(temp!=null)
 		{
-			System.out.print(temp.getData()+"->");
-			temp=temp.getNext();
+			System.out.print(temp.getData()+"->");//printing node
+			temp=temp.getNext();//Traverse to next node
 		}
 		System.out.println();
 	}
@@ -86,20 +81,21 @@ public class UnorderedList<T> implements List<T>
 	public boolean search(T eleSearch) 
 	{
 		Node<T> temp=first;
-		if(first==null && last==null)
+		if(first==null && last==null)//Empty ll
 			return false;
 		else
 		{
 			while(temp!=null)
 			{
-				if(temp.getData().equals(eleSearch))
+				if(temp.getData().equals(eleSearch))//Checking equality
 					return true;
 				else
-					temp=temp.getNext();
+					temp=temp.getNext();//To traverse next
 			}
 		}
 		return false;
 	}
+	//Return index of searched node
 	public int index(T item) 
 	{
 		Node<T> temp=first;
@@ -109,18 +105,19 @@ public class UnorderedList<T> implements List<T>
 		else
 		{
 			while(temp!=null)
-			{	++count;
+			{	
+				++count;//Getting count of index
 				if(temp.getData().equals(item))
 				{
-					break;
+					break;//if found break loop
 				}
-				temp=temp.getNext();
+				temp=temp.getNext();//Traverse next
 			}
 		}
-		return count;
+		return count; //return index
 	}
 	@Override
-	public boolean isEmpty()
+	public boolean isEmpty()//Checks LL is empty or not
 	{
 		if(first==null)	return true;
 		else return false;
@@ -132,13 +129,13 @@ public class UnorderedList<T> implements List<T>
 		Node<T> temp=first;
 		while(temp!=null) 
 		{
-			count++;
-			temp=temp.getNext();
+			count++;//Getting count of index
+			temp=temp.getNext();//Traverse next
 		}
-		return count;
+		return count;//return size
 	}
 	@Override
-	public void append(T item) 
+	public void append(T item) //Adding node at end of LL
 	{
 		Node<T> node=new Node<>(item);
 		Node<T> temp=first;
@@ -151,10 +148,10 @@ public class UnorderedList<T> implements List<T>
 		{
 			while(temp!=null)
 			{
-				temp=temp.getNext();
+				temp=temp.getNext();//Traverse next
 			}
 			last.setNext(node);
-			last=node;
+			last=node;//Assigning last node with new node
 		}
 	}
 	public T pop()
@@ -163,20 +160,20 @@ public class UnorderedList<T> implements List<T>
 		Node<T> prev=first;
 		if(isEmpty())
 			return null;
-		if(first==last)
+		if(first==last)//For only one node
 		{
 			 first.setNext(null);
 			 last.setNext(null);
-			 return first.getData();
+			 return first.getData();//return first node
 		}
 		while(temp.getNext()!=null)
 		{
 			prev=temp;
 			temp=temp.getNext();
 		}
-		last=prev;
-		last.setNext(null);
-		return temp.getData();
+		last=prev;//Holding previous node as last
+		last.setNext(null);//releasing last node
+		return temp.getData();//returning popped node
 	}
 	@Override
 	public T pop(int pos) 

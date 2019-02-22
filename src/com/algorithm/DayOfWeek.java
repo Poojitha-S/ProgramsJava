@@ -16,6 +16,7 @@ public class DayOfWeek
 			int month=Integer.parseInt(args[1]);
 			int year=Integer.parseInt(args[2]);
 			int res=UtilClass.dayOfWeek(day,month, year);
+			System.out.println("Index of week "+res);//gives index of week
 			String[] arr={"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
 			System.out.println("Day on "+day+(char)47+month+(char)47+year+" is : "+arr[res]);
 		}

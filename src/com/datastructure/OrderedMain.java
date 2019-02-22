@@ -21,11 +21,8 @@ public class OrderedMain
 			String line="";
 			int key;
 			String path="/home/admin1/Desktop/linkedInteger.txt";
-			File f=new File(path);
-			if(path==null) 
-				throw new IllegalAccessException("Path is incorrect");
-			
-			else if(f.exists() && f.isFile() && f.getName().endsWith(".txt"))
+			File f=new File(path);			
+			if(f.exists() && f.isFile() && f.getName().endsWith(".txt"))
 			{
 				br=new BufferedReader(new FileReader(f));
 				String temp=null;

@@ -354,6 +354,31 @@ return count;
 		return pal;
 
 	}	
+	public static  List<Integer> checkPrimeAnagram(List<Integer> num)
+	{
+		List<Integer> li=new ArrayList<>();
+		int[] a=new int[num.size()];
+		for(int i=0;i<a.length;i++)
+			a[i]=(int) num.get(i);
+		for(int i=0;i<a.length;i++)
+		{
+			for(int j=0;j<a.length;j++)
+			{
+				if(a[i]>0 && a[j]>0 && a[i]!=a[j])
+				{
+					String s1=Integer.toString(a[i]);
+					String s2=Integer.toString(a[j]);
+					char[] c1=s1.toCharArray();
+					char[] c2=s2.toCharArray();
+					Arrays.sort(c1);
+					Arrays.sort(c2);
+					if(Arrays.equals(c1,c2))
+						li.add(a[i]);
+				}
+			}
+		}
+		return li;
+	}
 	/************************Generic searching and sorting*****************/
 	/************************Binary Search*************************/
 	/*
@@ -589,7 +614,7 @@ return count;
 	public static int dayOfWeek(int d, int m, int y) 
 	{	//formulae to claculate day
 		int y0=y-(14-m)/12;
-		int x=y0+(y0/4)-y0/100+y0/400;
+		int x=y0+(y0/4)-(y0/100)+(y0/400);
 		int m0=m+12*((14-m)/12)-2;
 		int d0=(d+x+31*m0/12)%7;
 		return d0;
@@ -831,5 +856,38 @@ return count;
 			e.printStackTrace();
 		}
 	}
+	public static void twoDPrime(List<Integer> num)
+	{
+		int row=10,col=27;
+		int[][] arr=new int[row][col];
+		List<Integer> li=new ArrayList<>(num);
+		int temp=100,k=0;
+		//Reading prime numbers as 2D array
+		for(int i=0;i<row;i++)
+		{
+			for(int j=0;j<col;j++)
+			{
+					if(k<li.size() && li.get(k)<=temp)//checks num is less than 100 
+					{
+						arr[i][j]=li.get(k);//store num in 2D array
+						System.out.print(arr[i][j]+"\t");
+						k++;
+					}
+				
+			}
+			System.out.println();
+			temp=temp+100;
+		}
+	}
+	public static int factorial(int n)
+	{
+		int fact=1;
+		for(int i=1;i<=n;i++)
+		{
+			fact=fact*i; 
+		}
+
+		return fact;
+}
 	
 }

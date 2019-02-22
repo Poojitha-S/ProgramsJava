@@ -78,7 +78,6 @@ public class OrderedList<T>
 				{
 					temp.setNext(curr.getNext());
 					curr.setNext(null);
-					//System.out.println(item+" removed from the list");
 						break;
 				}
 				else {

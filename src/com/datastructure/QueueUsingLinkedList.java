@@ -1,44 +1,59 @@
 package com.datastructure;
-
-public class QueueUsingLinkedList<T>
+public class QueueUsingLinkedList 
 {
-	private Node<T> first;
-	private Node<T> last;
-	public QueueUsingLinkedList()
+	@SuppressWarnings("rawtypes")
+	Node front;
+	Node rear;
+    int size=0; 
+	public void enQueue(Object data)
 	{
-		first=null;
-		last=null;
-	}
-	public void enQueue(T ele) 
+		Node node=new Node();
+		node.setData(data);
+		node.setNext(null);
+		if(front==null)
+		{
+			front=node;
+			rear =node;
+			node.setNext(null);						
+		    size++;
+		}
+		else
+		{   
+			rear.setNext(node);
+			rear = node;  
+			node.setNext(null);  					
+		    size++;
+		}
+	}		
+	public Object deQueue()
 	{
-		Node<T> node=new Node<T>(ele);
-		if(first==null && last==null)
-			first=last=node;
+		Object temp=0;
+		if(front==null)
+			return null;
 		else
 		{
-			last.setNext(node);
-			last=node;
+		    temp =front.getData();
+		    front=front.getNext();
 		}
+		return temp;
 	}
-	public void print() 
+	public int size()
 	{
-		Node<T> temp=first;
-		System.out.println("Elements are:");
-		while(temp!=null)
-		{
-			System.out.print(temp.getData()+"->");
-			temp=temp.getNext();
-		}
-		System.out.println();
+		return size;
 	}
-	public T dequeue() 
-    { 
-        if (  first == null) 
-           return null; 
-        Node<T>  temp =   first; 
-          first =   first.getNext(); 
-        if (  first == null) 
-           last = null; 
-        return (T) temp.getData(); 
-    } 
+	public void show()
+	{
+		Node temp;
+		temp= front;
+		if(front== null)
+			 System.out.println("Queue is empty");
+		else
+		{
+			while(temp!= null)
+			{
+				System.out.print(temp.getData()+"->");
+				temp =temp.getNext();
+			}
+		}
+	}	
 }

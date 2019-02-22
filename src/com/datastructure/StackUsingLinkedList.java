@@ -46,4 +46,48 @@ public class StackUsingLinkedList<T>
 		if(first==null)	return true;
 		else return false;
 	}
+	
+	public T pop(int pos) 
+	{
+		int count=-1;
+		Node<T> temp=first;
+		Node<T> prev=first;
+		if(isEmpty())
+			return null;
+		while(temp!=null)
+		{
+			count++;
+			if(count==0 && count==pos)
+			{
+				first=temp.getNext();
+				temp.setNext(null);
+				return temp.getData();
+			}
+			else if(count==pos && temp==last)
+			{
+				prev=last;
+				last.setNext(null);
+				return last.getData(); 
+			}
+			else if(count==pos)
+			{
+				prev.setNext(temp.getNext());
+				temp.setNext(null);
+				return temp.getData();
+			}
+			prev=temp;
+			temp=temp.getNext();
+		}
+		return null;		
+	}
+	public void print() 
+	{
+		Node<T> temp=first;
+		while(temp!=null)
+		{
+			System.out.print(temp.getData()+"->");
+			temp=temp.getNext();
+		}
+		System.out.println();
+	}
 }

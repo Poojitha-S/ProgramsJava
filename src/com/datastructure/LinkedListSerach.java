@@ -16,10 +16,7 @@ public class LinkedListSerach
 		{
 		String path="/home/admin1/Desktop/Files/linkedSample.txt";
 		File f=new File(path);
-		if(path==null) 
-			throw new IllegalAccessException("Path is incorrect");
-		
-		else if(f.exists() && f.isFile() && f.getName().endsWith(".txt"))
+		if(f.exists() && f.isFile() && f.getName().endsWith(".txt"))
 		{
 			br=new BufferedReader(new FileReader(f));
 			String line="";
