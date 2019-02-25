@@ -14,16 +14,11 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.List;
 import java.util.Random;
-/**
- * @author admin1
- *
- */
 public class Utility
 {
 
 	/**********************************String Replace******************************/
-	
-	/**
+	                   /**
 	 * This method replace the specified string with another string using replace() method.
 	 * @param s1
 	 * @param s2
@@ -71,7 +66,7 @@ public class Utility
 	}
 	/********************************Power of 2************************************/	
 	/**
-	 * This method prints table of power of 2 till whatever range specified by user
+	 * This method returns array of power of 2 till whatever range specified by user
 	 * range should be less then 31 (0<=N<31)
 	 * @param n
 	 * @return array of power of two
@@ -306,29 +301,7 @@ public class Utility
 			return (long) (35.74 + 0.6215*temp + (0.4275*temp - 35.75) * Math.pow(speed, 0.16));
 		}
 	}
-	/**************************Anagram Of String*******************/
-	/**
-	 * This method checks give strings are anagram
-	 * One string is an anagram of another if the second is simply a 
-	 * rearrangement of the first. 
-	 * For example, 'heart' and 'earth' are anagrams.
-	 * @param str1
-	 * @param str2
-	 * @return boolean value 
-	 */
-	public static  boolean checkAnagram(String str1, String str2)
-	{
-		//Converting both string to character array of lower case to compare
-		char[] str1Chars=str1.toLowerCase().toCharArray();
-		char[] str2Chars=str2.toLowerCase().toCharArray();
-		//Sorting both arrays to make them easy to compare
-		Arrays.sort(str1Chars);
-		Arrays.sort(str2Chars);
-		str1=new String(str1Chars);
-		str2=new String(str2Chars);
-		//Returns true if both strings are equal
-		return str1.equals(str2);
-	}
+	
 	/*****************************Prime Number of range between 0 and 1000**************/
 	
 	/**
@@ -414,6 +387,29 @@ public class Utility
 		return pal;
 
 	}	
+	/**************************Anagram Of String*******************/
+	/**
+	 * This method checks give strings are anagram
+	 * One string is an anagram of another if the second is simply a 
+	 * rearrangement of the first. 
+	 * For example, 'heart' and 'earth' are anagrams.
+	 * @param str1
+	 * @param str2
+	 * @return boolean value 
+	 */
+	public static  boolean checkAnagram(String str1, String str2)
+	{
+		//Converting both string to character array of lower case to compare
+		char[] str1Chars=str1.toLowerCase().toCharArray();
+		char[] str2Chars=str2.toLowerCase().toCharArray();
+		//Sorting both arrays to make them easy to compare
+		Arrays.sort(str1Chars);
+		Arrays.sort(str2Chars);
+		str1=new String(str1Chars);
+		str2=new String(str2Chars);
+		//Returns true if both strings are equal
+		return str1.equals(str2);
+	}
 	public static  List<Integer> checkPrimeAnagram(List<Integer> num)
 	{
 		List<Integer> li=new ArrayList<>();
@@ -422,7 +418,7 @@ public class Utility
 			a[i]=(int) num.get(i);//Copying list elements to integer array
 		for(int i=0;i<a.length;i++)
 		{
-			for(int j=0;j<a.length;j++)
+			for(int j=i+1;j<a.length;j++)
 			{
 				if(a[i]>0 && a[j]>0 && a[i]!=a[j])
 				{
@@ -432,8 +428,10 @@ public class Utility
 					char[] c2=s2.toCharArray();
 					Arrays.sort(c1);//sorting
 					Arrays.sort(c2);
-					if(Arrays.equals(c1,c2))
+					if(Arrays.equals(c1,c2)){
 						li.add(a[i]);
+						li.add(a[j]);
+					}
 				}
 			}
 		}
@@ -514,7 +512,7 @@ public class Utility
 	 * @param array
 	 * @return array of sorted elements
 	 */
-	public static <T extends Comparable<T>> T[] genericsBubbleSort(T[] array)
+	public static <T extends Comparable<T>> T[] genericBubbleSort(T[] array)
 	{
 
 		for(int i=0;i<array.length;i++)
@@ -522,14 +520,15 @@ public class Utility
 			for(int j=0;j<array.length-1;j++)
 			{
 				if(array[j].compareTo(array[j+1])>0)//comparing adjecent element
-				{//swapping
+				{
+					//swapping
 					T temp=array[j];
 					array[j]=array[j+1];
 					array[j+1]=temp;
 				}
 			}
-		}return array;
-
+		}
+		return array;
 	}
 	/***********************Merge Sort**************************/
 	/**
@@ -613,7 +612,7 @@ public class Utility
 	 * @throws IOException
 	 * @throws IllegalAccessException
 	 */
-	public static int wordSerach(String path,String word) throws IOException, IllegalAccessException
+	public static int wordSerach(String path,String word) throws IOException
 	{
 		int res=0;
 		BufferedReader br=null;

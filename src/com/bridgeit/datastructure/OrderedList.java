@@ -31,7 +31,7 @@ public class OrderedList<T>
 				prev=curr;
 				curr=curr.getNext();
 			}
-			if(curr!=null && curr==first) 
+			if(curr!=null && curr==first) //For first ele
 			{
 				newNode.setNext(curr);
 				first=newNode;

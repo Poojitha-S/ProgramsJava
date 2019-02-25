@@ -43,7 +43,7 @@ public class DifferentSortAndSearch
 											    a1[i++] = Integer.valueOf(value);
 											}
 											start=Utility.startTime();
-											Utility.genericsBubbleSort(a1);
+											Utility.genericBubbleSort(a1);
 											end=Utility.endTime();
 											for(Integer k:a1)
 											{
@@ -57,7 +57,7 @@ public class DifferentSortAndSearch
 											String str=Utility.readStringArray();
 											String[] s1=str.split(" ");
 											start=Utility.startTime();
-											String[] s2=Utility.genericsBubbleSort(s1);
+											String[] s2=Utility.genericBubbleSort(s1);
 											end=Utility.endTime();
 											for(String s:s2)
 											{

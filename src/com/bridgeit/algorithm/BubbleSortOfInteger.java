@@ -20,7 +20,7 @@ public class BubbleSortOfInteger
 			int i=0;
 			for (int value : a) 
 			   a1[i++] = Integer.valueOf(value);
-			Utility.genericsBubbleSort(a1);
+			Utility.genericBubbleSort(a1);
 			System.out.println("Sorted array ");
 			for(Integer res:a1)
 			{

@@ -183,23 +183,23 @@ public class UnorderedList<T> implements List<T>
 	{
 		if(isEmpty())
 		{
-		System.out.println("List is empty...!");
-		return null;
+			System.out.println("List is empty...!");
+			return null;
 		}
 		Node<T> curr=first;
 		Node<T> prev=first;
 
 		int  count=-1;
 		while(curr!=null)//traverse to reach the last item in the list
-			count++;
 		{
+			count++;
 			if(count==pos &&count==0)// removal at 0th position, update first
 			{
-			first=curr.getNext();
-			curr.setNext(null);
-			return curr.getData();
+				first=curr.getNext();
+				curr.setNext(null);
+				return curr.getData();
 			}
-			else if(count==pos&&curr==last)// remoavl at the last position
+			else if(count==pos&&curr==last)// removal at the last position
 			{
 				last=prev;
 				last.setNext(null);
@@ -214,7 +214,7 @@ public class UnorderedList<T> implements List<T>
 			prev=curr;
 			curr=curr.getNext();
 		}
-		System.out.println("Given position is not found in the lsit...!");
+		System.out.println("Given position is not found in the list");
 		return null;
 	}
 	public void remove(T item) //remove item

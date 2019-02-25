@@ -8,8 +8,4 @@ public class InSufficientFundException extends Throwable
 	{
         this.message = message;
     }
-	public String getMessage() 
-	{
-	       return message;
-	}
 }
