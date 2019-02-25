@@ -29,15 +29,8 @@ public class PrimeAnagramUsingStack
 		list.print();
 		System.out.println("Order of deletion:");
 		for(int i=0;i<count;i++) {
-		//	System.out.print(list.pop()+"->");
+			System.out.print(list.pop()+"->");
 		}
-		List lis ;
-		for(int i=0;i<count;i++)
-		{
-		Object k=(Object) list.pop();
-		lis =java.util.Arrays.asList(k);
-		}
-		//UtilClass.twoDPrime(lis);
 	}
 
 }

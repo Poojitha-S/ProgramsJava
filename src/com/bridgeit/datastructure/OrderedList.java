@@ -81,7 +81,8 @@ public class OrderedList<T>
 					curr.setNext(null);
 						break;
 				}
-				else {
+				else 
+				{
 					temp=curr;
 					curr=curr.getNext();
 				}

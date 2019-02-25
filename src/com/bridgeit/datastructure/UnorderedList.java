@@ -25,48 +25,7 @@ public class UnorderedList<T> implements List<T>
 			last=node;//Making new node as last
 		}
 	}
-	@Override
-	public void remove(T item)
-	{
-		Node<T>	temp=null;
-		Node<T> prev=null;
-		if(isEmpty())
-			System.out.println("List is empty");
-		//For only one node
-		else if(first.getData().equals(item) && first.getNext() == null)//Checking for only first node
-		{//Releasing first node initializing with null
-			first=null;
-			last=null;
-		}//Searching ele is first element
-		else if(first.getData().equals(item) && first.getNext() != null)
-		{
-			//Storing first node in temp and realizing temp
-			temp=first;
-			first=first.getNext();
-			temp=null;
-		}//Other than first element
-		else 
-		{
-			temp=first;
-			prev=first.getNext();//Pointing to previous node of temp
-			while(prev!=null)
-			{
-				if(prev.getData().equals(item))//Checking previous node is searching node                    
-				{
-					temp.setNext(prev.getNext());
-					prev.setNext(null);
-					break;
-				}
-				else 
-				{
-					temp=prev;
-					prev=prev.getNext();
-				}
-			}
-		}
-	}
-
-	@Override
+	
 	public void print() 
 	{
 		Node<T> temp=first;//To start travel from first node
@@ -144,40 +103,7 @@ public class UnorderedList<T> implements List<T>
 		}
 		return count;//return size
 	}
-	@Override
-	public T pop(int pos) 
-	{
-		int count=-1;
-		Node<T> temp=first;
-		Node<T> prev=first;
-		if(isEmpty())
-			return null;
-		while(temp!=null)
-		{
-			count++;
-			if(count==0 && count==pos)
-			{
-				first=temp.getNext();
-				temp.setNext(null);
-				return temp.getData();
-			}
-			else if(count==pos && temp==last)
-			{
-				prev=last;
-				last.setNext(null);
-				return last.getData(); 
-			}
-			else if(count==pos)
-			{
-				prev.setNext(temp.getNext());
-				temp.setNext(null);
-				return temp.getData();
-			}
-			prev=temp;
-			temp=temp.getNext();
-		}
-		return null;		
-	}
+	
 	@Override
 	public void append(T item) //Adding node at end of LL
 	{
@@ -253,5 +179,80 @@ public class UnorderedList<T> implements List<T>
 		}
 		
 	}
+	public T pop(int pos)
+	{
+		if(isEmpty())
+		{
+		System.out.println("List is empty...!");
+		return null;
+		}
+		Node<T> curr=first;
+		Node<T> prev=first;
 
+		int  count=-1;
+		while(curr!=null)//traverse to reach the last item in the list
+			count++;
+		{
+			if(count==pos &&count==0)// removal at 0th position, update first
+			{
+			first=curr.getNext();
+			curr.setNext(null);
+			return curr.getData();
+			}
+			else if(count==pos&&curr==last)// remoavl at the last position
+			{
+				last=prev;
+				last.setNext(null);
+				return curr.getData();
+			}
+			else if(count==pos)//removal in-between
+			{
+			prev.setNext(curr.getNext());
+			curr.setNext(null);
+			return curr.getData();
+			}
+			prev=curr;
+			curr=curr.getNext();
+		}
+		System.out.println("Given position is not found in the lsit...!");
+		return null;
+	}
+	public void remove(T item) //remove item
+	{
+		Node<T>	temp=null;
+		Node<T> curr=null;
+		if(isEmpty())
+			System.out.println("List is empty...!");
+		else if(first.getData().equals(item) && first.getNext() == null)// one item list
+		{
+			first=null;
+			last=null;
+		}
+		else if(first.getData().equals(item) && first.getNext() != null)//update only first
+		{
+			
+			temp=first;
+			first=first.getNext();
+			temp=null;
+		}
+		else 
+		{
+			temp=first;
+			curr=first.getNext();
+			while(curr!=null)
+			{
+				if(curr.getData().equals(item))
+				{
+					temp.setNext(curr.getNext());
+					curr.setNext(null);
+					break;
+				}
+				else 
+				{
+					temp=curr;
+					curr=curr.getNext();
+				}
+			}
+		}
+}
 }
