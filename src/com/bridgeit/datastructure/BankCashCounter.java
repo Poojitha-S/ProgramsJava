@@ -3,7 +3,6 @@ package com.bridgeit.datastructure;
 
 import java.util.Scanner;
 
-import com.bridgeit.exception.Account;
 import com.bridgeit.exception.InSufficientFundException;
 
 public class BankCashCounter

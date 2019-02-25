@@ -1,4 +1,6 @@
-package com.bridgeit.exception;
+package com.bridgeit.datastructure;
+
+import com.bridgeit.exception.InSufficientFundException;
 
 public class Account 
 {

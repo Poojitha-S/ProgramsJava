@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 import com.bridgeit.util.*;
-public class Hashing {
+public class HashProgram {
 
 	public static void main(String[] args) throws IOException
 	{	
@@ -14,11 +14,11 @@ public class Hashing {
 		File file=new File("/home/admin1/Desktop/Files/hashProgram.txt");  
 		String[] str=Utility.readFromFile(file);
 		int[] num=Utility.stringToIntArray(str);
-
+		//create hash table of ordered link list
 		HashMap<Integer,OrderedList<Integer>> hashTable=new HashMap<>();
 		for(int i=0;i<11;i++) 
 			hashTable.put(i,null);
-		
+		//add all the numbers to appropriate slot in hash table
 		for (int i=0;i<num.length;i++)
 			addToHashTable(hashTable,num[i]);
 		
@@ -27,47 +27,62 @@ public class Hashing {
 		System.out.println("\nEnter a key to be searched");
 		int key=sc.nextInt();
 		if(searchKey(hashTable,key)) 
-			System.out.println(key+" is present, so removed from the hash table");
+			System.out.println(key+" is present");
 		else
-			System.out.println(key +" is not present, so added to the hash table");
+			System.out.println(key +" is not present");
 		
 		printHashTable(hashTable);
 		int[] arr=toArray(hashTable);
-		Utility.writeToFile(arr, file);
+		Utility.writeToFile(arr,file);//writing the hash table to a file
 	}
+	/**
+	 * adding a number to slot
+	 * @param hashTable 
+	 * @param num 
+	 */
 	public static void addToHashTable(HashMap<Integer,OrderedList<Integer>> hashTable, int num)
 	{
-		int slot=num%hashTable.size();
-		OrderedList<Integer> list=hashTable.get(slot);
+		int placeHolder=num%hashTable.size();//place to hold value
+		OrderedList<Integer> list=hashTable.get(placeHolder);
 		if(list==null)
-			list=new OrderedList<Integer>();
-		list.add(num);
-		hashTable.put(slot, list);
+			list=new OrderedList<Integer>();//new list for values those are not added
+		list.add(num);//added to list of values
+		hashTable.put(placeHolder, list);//add value to respective key
 	}
+	/**
+	 * searches a key is present in the hash table; if present removes it otherwise adds to the table
+	 * @param hashTable
+	 * @param key
+	 * @return true if key present else false
+	 */
 	public static boolean searchKey(HashMap<Integer,OrderedList<Integer>> hashTable, int key) 
 	{
-		boolean isPresent=false;
-		int slot=key%hashTable.size();
-		OrderedList<Integer>list=hashTable.get(slot);
-		if(list==null) 
+		boolean flag=false;
+		int placeHolder=key%hashTable.size();//get key value of element to be searched
+		OrderedList<Integer>list=hashTable.get(placeHolder);//get value present in key
+		if(list==null) //for new key value pair
 		{
-			isPresent=false;
-			list=new OrderedList<Integer>();
-			list.add(key);
+			flag=false;
+			list=new OrderedList<Integer>();//create new list
+			list.add(key);//added to list
 		}
-		else if(list.search(key))
+		else if(list.search(key))//if pres
 		{
-			isPresent=true;
+			flag=true;
 			list.remove(key);
 		}
-		else 
+		else  //if not present added to list
 		{
-			isPresent=false;
+			flag=false;
 			list.add(key);
 		}
-		hashTable.put(slot,list);
-		return isPresent;
+		hashTable.put(placeHolder,list);//add key value pair
+		return flag;
 	}
+	/**
+	 * printing all the numbers in the hash table
+	 * @param hashTable hash table of numbers
+	 */
 	public static void printHashTable(HashMap<Integer,OrderedList<Integer>> hashTable) 
 	{
 		System.out.println("-----------------");
@@ -82,16 +97,24 @@ public class Hashing {
 			System.out.println();
 		}
 	}
+	/**
+	 * converting the hash table to array
+	 * @param hashTable
+	 * @return array of hash table data
+	 */
 	public static int[] toArray(HashMap<Integer,OrderedList<Integer>> hashTable) 
 	{
+		int[] temp=new int[hashTable.size()];
 		String nums="";
 		for(Integer key:hashTable.keySet()) 
 		{
 			OrderedList<Integer> list=hashTable.get(key);
 		    while(list!=null && list.getFirst()!=null) 
-		       	nums=nums+list.pop()+",";
+		       //	nums=nums+list.pop()+",";
+		    	temp[key]=list.pop();
 		}
-		String[] arr=nums.split(",");
-		return Utility.stringToIntArray(arr);
+		//String[] arr=nums.split(",");
+	//	return Utility.stringToIntArray(arr);
+		return temp;
 	}
 }

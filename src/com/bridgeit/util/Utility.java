@@ -900,15 +900,6 @@ public class Utility
 	    }
 		return count;
 	}
-	/**********************Hash Function*************************/
-	/**
-	 * @param num
-	 * @return hash number
-	 */
-	public static int hashFunction(int num) {
-		int reminder=num%11;
-		return reminder;
-	}
 	/*********************String Array To Integer Array**************/
 	/**
 	 * @param str
