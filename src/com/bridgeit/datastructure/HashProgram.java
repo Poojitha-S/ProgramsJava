@@ -110,11 +110,8 @@ public class HashProgram {
 		{
 			OrderedList<Integer> list=hashTable.get(key);
 		    while(list!=null && list.getFirst()!=null) 
-		       //	nums=nums+list.pop()+",";
 		    	temp[key]=list.pop();
 		}
-		//String[] arr=nums.split(",");
-	//	return Utility.stringToIntArray(arr);
 		return temp;
 	}
 }
