@@ -31,7 +31,7 @@ public class OrderedList<T>
 				prev=curr;
 				curr=curr.getNext();
 			}
-			if(curr!=null && curr==first) //For first ele
+			if(curr!=null && curr==first) 
 			{
 				newNode.setNext(curr);
 				first=newNode;
@@ -47,8 +47,7 @@ public class OrderedList<T>
 				last=newNode;
 			}
 		}
-		else
-			System.out.printf("Item already exits in the list");
+		
 	}
 	public void remove(T item) 
 	{
@@ -161,6 +160,34 @@ public class OrderedList<T>
 			curr=curr.getNext();
 		}
 		System.out.println("Given position is not found in the list");
+		return null;
+	}
+	public Integer get(int pos)
+	{
+		if(isEmpty())
+		{
+			System.out.println("List is empty");
+			return null;
+		}
+		Node<T> curr=first;
+		int  count=-1;
+		while(curr!=null) 
+		{
+			count++;
+			if(count==pos &&count==0)
+			{
+				return (Integer) first.getData();
+			}
+			else if(count==pos&&curr==last) 
+			{
+				return (Integer) last.getData();
+			}
+			else if(count==pos)
+			{
+				return (Integer) curr.getData();
+			}
+			curr=curr.getNext();
+		}
 		return null;
 	}
 	public boolean isEmpty() //Checks LL is empty or not

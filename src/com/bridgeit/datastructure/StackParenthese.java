@@ -1,6 +1,11 @@
 package com.bridgeit.datastructure;
 
 import java.util.Scanner;
+interface Sample
+{
+	void print();
+	
+}
 
 public class StackParenthese 
 {
@@ -9,7 +14,7 @@ public class StackParenthese
 		int i=0;
 		char ch;
 		Scanner sc=new Scanner(System.in);
-		Stack<Character> stack=new Stack<>();
+		MyStack<Character> stack=new MyStack<>();
 		System.out.println("Enter Expression:");
 		String expr=sc.nextLine();//User input
 		while(i<expr.length())
@@ -30,7 +35,9 @@ public class StackParenthese
 				stack.pop();			
 			i++;
 		}
-		if(stack.isEmpty())//if any braces left in stack it is not balanced expression
+		Sample s=()->{System.out.println("If there is  starting bracket left in stack then that expression is not balanced");};
+		s.print();
+		if(stack.isEmpty())
 			System.out.println("Expression is balanced");
 		else
 			System.out.println("Expression id not balanced");

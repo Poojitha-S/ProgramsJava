@@ -1,5 +1,6 @@
 package com.bridgeit.algorithm;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.bridgeit.util.*;
@@ -20,11 +21,9 @@ public class Anagram
 			else
 				System.out.println("Both "+a+" and "+b+" are not anagram");
 		}
-		catch(Exception e)
+		catch(InputMismatchException e)
 		{
 			e.printStackTrace();
 		}
 	}
-
-	
 }

@@ -15,23 +15,21 @@ public class BankCashCounter
 		System.out.println("-----------------WELCOME TO BANK---------------------");
 		System.out.println("----Enter the number of people standing in queue-----");	
 		int n= sc.nextInt();
-		MyQueue<Object> queue=new MyQueue<Object>(n);	
+		MyQueue<String> queue=new MyQueue<String>();	
 		for(int i=1;i<=n;i++)
 		{
 			System.out.println("Enter the name of "+i +" person");
 			String name= sc.next();
-			boolean t =queue.enqueue(name); 	
-			if(t==false) 
-			{
-				System.out.println("person not added");
-			}
+			queue.enQueue(name); 	
 		}
 		System.out.println("\n"+"----People standing in queue are as follows-----");
-		String[] name1=queue.toString().split(", ");
-		for(int i=0;i<n;i++)
+		//System.out.println(queue);
+		//String[] name1=queue.toString().split(", ");
+		for(int i=1;i<=n;i++)
 		{
-			String res=name1[i].replaceAll("[^\\w]", " ");
-			System.out.println("Welcome: Ms/Mrs."+res);		
+			//String res=name1[i].replaceAll("[^\\w]", " ");
+		//	System.out.println("Welcome: Ms/Mrs."+res);
+			System.out.println("Welcome....person "+i+" in Queue");
 			System.out.println("--------Please choose your options:-------------");
 			System.out.println("Press 1:To Deposit");
 			System.out.println("Press 2:To Withdraw");
@@ -66,7 +64,7 @@ public class BankCashCounter
 					}
 					break;
 			}
-			queue.dequeue();		
+			queue.deQueue();		
 		}
 	}
 }

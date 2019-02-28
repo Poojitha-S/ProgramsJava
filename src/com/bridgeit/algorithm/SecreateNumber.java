@@ -1,9 +1,8 @@
 package com.bridgeit.algorithm;
 
 import java.util.InputMismatchException;
-import java.util.Scanner;
 
-import com.bridgeit.util.Utility;
+import java.util.Scanner;
 public class SecreateNumber 
 {
 	public static void main(String[] args)
@@ -16,8 +15,6 @@ public class SecreateNumber
 			int mid=0;
 			int low=0;
 			int high=n-1;
-			
-			int count=0;
 			Scanner sc1=new Scanner(System.in);
 			int res=0;
 			while(res!=3)

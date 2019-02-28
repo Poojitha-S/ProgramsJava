@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -990,13 +991,11 @@ public class Utility
 	 * @param n
 	 * @return factorial of n
 	 */
-	public static int factorial(int n)
+	public static BigInteger factorial(int n)
 	{
-		int fact=1;
-		for(int i=1;i<=n;i++)
-		{
-			fact=fact*i;//calculating factorial 
-		}
+		BigInteger fact=new BigInteger("1");
+		for (int i = 2; i <= n; i++) 
+            fact = fact.multiply(BigInteger.valueOf(i)); 
 		return fact;
 	}
 }

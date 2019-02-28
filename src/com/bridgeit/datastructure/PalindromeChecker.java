@@ -10,15 +10,15 @@ public class PalindromeChecker<T>
 		System.out.println("Enter the string for palindrome " );
 		String s=sc.nextLine();
         char[] c= s.toCharArray();
-		DeQueue<Object> queue=new DeQueue<Object>(c.length);	
+		DeQueueImplementation<Character> queue=new DeQueueImplementation<Character>();	
 		for(int i=0;i<c.length;i++)
 		{
-			queue.rearEnqueue(c[i]);	
+			queue.frontEnqueue(c[i]);	
 		}
 		boolean status=true; 
 		for(int i=0;i<c.length;i++)
 		{
-			if(c[i]!=(char) queue.rearDequeue())
+			if(c[i]!=(char) queue.<Character>frontDequeue())
 			{
 				status=false;	
 				break;
@@ -34,5 +34,4 @@ public class PalindromeChecker<T>
 		sc.close();
 	}
 }
-
 

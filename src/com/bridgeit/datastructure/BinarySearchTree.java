@@ -1,4 +1,5 @@
 package com.bridgeit.datastructure;
+import java.math.BigInteger;
 import java.util.Scanner;
 
 import com.bridgeit.util.*;
@@ -14,13 +15,16 @@ public class BinarySearchTree
 		 * 
 		 * formula for binarySearch 2nCn/(n+1) it becomes(2n!)/(n+1)! *n!
 		 */	
-		 int numerator=Utility.factorial(2*nodes);
-		 int denominator1=Utility.factorial(nodes +1);
-		 int denominator2=Utility.factorial(nodes);
-		 int res=0;
+		 BigInteger res=new BigInteger("1");
+		 BigInteger numerator=new BigInteger("1");
+		 BigInteger denominator1=new BigInteger("1");
+		 BigInteger denominator2=new BigInteger("1");
+		 numerator=Utility.factorial(2*nodes);
+		 denominator1=Utility.factorial(nodes +1);
+		 denominator2=Utility.factorial(nodes);
 		 try
 		 {
-			 res=numerator/(denominator1*denominator2);
+			 res=numerator.divide((denominator1).multiply(denominator2));
 		 }catch(ArithmeticException e)
 		 {
 			 throw new IllegalArgumentException("you are getting ArithmeticException");

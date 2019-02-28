@@ -16,10 +16,7 @@ public class WordBinarySearch
 		{
 		String path="/home/admin1/Desktop/Files/Sample.txt";
 		File f=new File(path);
-		if(path==null) 
-			throw new IllegalAccessException("Path is incorrect");
-		
-		else if(f.exists() && f.isFile() && f.getName().endsWith(".txt"))
+		if(f.exists() && f.isFile() && f.getName().endsWith(".txt"))
 		{
 			System.out.println("Enter the word to serach:");
 			String word=sc.nextLine();

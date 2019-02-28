@@ -1,59 +1,42 @@
  package com.bridgeit.datastructure;
 
-import java.util.Arrays;
-
-public class MyQueue<T> 
+public class MyQueue<T> implements Queue <T>
 {
-	int size;
-	Object s[];		
-	int front,rear = -1;
-	MyQueue(int size)
-	{
-		this.size=size;
-		s=new Object[size];
-	}
-	public MyQueue() {
-		// TODO Auto-generated constructor stub
-	}
-	public boolean isempty()
-	{
-		if(rear==-1 && front==-1)
+	private Node<T> front=null;
+	private Node<T> rear=null;
+	int size=0;
+
+	@Override
+	public void enQueue(T ele) {
+		if(rear==null)
 		{
-			return true;			
-		}	
-		else 
-			return false;	
-	}
-	public boolean enqueue(Object o)
-	{
-		if(rear==size-1)
-		{
-			System.out.println("Stack overflow");
-			return false;
+			Node<T> node=new Node<T>();
+			node.setData(ele);
+			front=rear=node;
 		}
-		s[++rear]= o;
-		return true;
+		rear.setNext(new Node<T>());
+		rear=rear.getNext();
+		rear.setData(ele);
+		size++;
 	}
-	public Object[] getQue()
-	{
-		return s;
-	}
-	public Object dequeue()
-	{   
-		if(front==-1)
-		{
-			System.out.println("Queue is underflow ");
-		} 
 
-		Object e= s[front];
+	@Override
+	public T deQueue() {
+		if(front==null)
+			return null;
+		Node<T> temp=front;
+		front=front.getNext();
+		size--;
+		return temp.getData();
+	}
 
-		front++;
-		return e;
+	@Override
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return (size==0);
 	}
-	public String toString()
-	{
-		return  Arrays.toString(s);
-	}
+
+	@Override
 	public int size() {
 		// TODO Auto-generated method stub
 		return size;

@@ -3,7 +3,26 @@ package com.bridgeit.functional;
 import java.util.Scanner;
 
 import com.bridgeit.util.Utility;
-
+interface Square 
+{ 
+    int calculate(int x); 
+} 
+  
+/*class Test 
+{ 
+    public static void main(String args[]) 
+    { 
+        int a = 5; 
+  
+        // lambda expression to define the calculate method 
+        Square s = (int x)->x*x; 
+  
+        // parameter passed and return type must be 
+        // same as defined in the prototype 
+        int ans = s.calculate(a); 
+        System.out.println(ans); 
+    } 
+} */
 public class Quadratic 
 {
 	public static void main(String[] args) 
@@ -11,6 +30,10 @@ public class Quadratic
 		Scanner sc=new Scanner(System.in);
 		double root1;
 		double root2;
+		int k = 5; 
+		 Square s = (int x)->x*x; 
+		 int ans = s.calculate(k); 
+	        System.out.println(ans); 
 		System.out.println("Enter value of a");
 		double a=sc.nextDouble();
 		System.out.println("Enter value of b");
