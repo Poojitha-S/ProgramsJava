@@ -1,97 +1,137 @@
-package com.bridgeit.opps;
+package com.bridgeit.oops;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import org.codehaus.jackson.map.ObjectMapper;
-
-
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class StockMaintain 
 {
-	static ObjectMapper objectMapper=new ObjectMapper();
-	static File companyFile=new File("/home/admin1/Desktop/Files/JSON/jsonCompanyShare.json");
-	static File userFile=new File("/home/admin1/Desktop/Files/JSON/useraccount.json");
-	static File transactionFile=new File("/home/admin1/Desktop/Files/JSON/jsonTransaction.json");
-	
-	static Scanner int_input=new Scanner(System.in);
-	static Scanner String_input=new Scanner(System.in);
+	StockMaintain stockMaintain;
 	public static void main(String[] args) throws Exception 
 	{
-		int choice=display();
-		outer: while(choice <= 6)
+		int choice;
+		Scanner sc=new Scanner(System.in);
+		StockAccount stockAccount = new StockAccount();
+		StockMaintain stockMaintain=new StockMaintain();
+		do
 		{
-
-			switch (choice)
+		System.out.println("1:Add company");
+		System.out.println("2.Add user");
+		System.out.println("3.Buy Shares");
+		System.out.println("Enter your choice");
+		choice=sc.nextInt();
+			switch(choice)
 			{
-			case 1:
-				createCompany();
-				break;
-			case 2:
-				createUserAccount();
-				break;
-			case 3:
-				ViewCompanyList();
-				break;
-			case 4:
-				buyCompany();
-				break;
-			case 5:
-				SellShare();
-				break;
-			case 6:
-				removeCompany(companyFile);
-				break;
-
-			default:
-				System.out.println("The End ");
-				break outer;
+				case 1: stockAccount.addCompany();
+						break;
+				case 2: stockAccount.addUser();
+						break;
+				case 3: stockMaintain.buy();
+						break;	
+					
 			}
-			choice=display();
+		}while(choice!=4);
+	}
+	String inputUserName;
+	String inputSymbol;
+	int inputShare;
+	public void userInput() 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter user name ");
+		inputUserName=sc.nextLine();
+		System.out.println("Enter symbol of company ");
+		inputSymbol=sc.nextLine();
+		System.out.println("Enter share, you want to buy ");
+		inputShare=sc.nextInt();
+	}
+	public void buy() throws Exception
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter user name ");
+		inputUserName=sc.nextLine();
+		System.out.println("Enter symbol of company ");
+		inputSymbol=sc.nextLine();
+		System.out.println("Enter share, you want to buy ");
+		inputShare=sc.nextInt();
+		ObjectMapper obj1=new ObjectMapper();
+		File file1=new File("/home/admin1/Desktop/JavaPrograms/src/Files/UserAccount.json");
+		UserAccountList allUsers=obj1.readValue(file1,UserAccountList.class);
+		List<UserAccount> allUser=allUsers.getUserAccount();
+		UserAccount userAcc=allUser.stream().filter(usr-> usr.getUserName().equals(inputUserName)).findFirst().get();
+		System.out.println(userAcc.getUserName());
+	//	UserAccount userUpdated=getUserUpdate(userAcc);
+		userAcc.setUserName(inputUserName);
+		userAcc.setShare(userAcc.getShare()+inputShare);
+		userAcc.setPrice(userAcc.getPrice());
+		//allUsers.getUserAccount().add(userAcc);
+		obj1.writeValue(file1,userAcc);
+	}
+	public UserAccount getUserUpdate(UserAccount userAcc)
+	{
+		//UserAccount userAcc=new UserAccount();
+		userAcc.setUserName(inputUserName);
+		userAcc.setShare(userAcc.getShare()+inputShare);
+		userAcc.setPrice(userAcc.getPrice());
+		return userAcc;
+	}
+	public void showTranscation()
+	{
+		UserAccount userAccount=new UserAccount();
+		Stock stock=new Stock();
+		if(stock.getSymbol().equals(inputSymbol))
+		{
+			System.out.println("User Share = "+userAccount.getShare());
+			System.out.println("Company Share = "+stock.getShare());
 		}
-
 	}
-
-	
-
-	// To display to user
-	public static int display() 
-	{
-		System.out.println("If you want to create company Account press 1 ");
-		System.out.println("If you want to create User Account press 2");
-		System.out.println("To view the company n price press 3");
-		System.out.println("To Buy Share press 4");
-		System.out.println("To Sell Share press 5");
-		System.out.println("To remove the company press 6");
-		System.out.println("Other than above numbers press any number");
-		System.out.println();
-		System.out.println("Enter your choice ");
-		int choice = int_input.nextInt();
-		return choice;
-	}
-
-	// To take user inputs
-	static String inputUserName;
-	static String inputSymbolName;
-	static int inputAmount;
-
-	public static void UserInput() 
-	{
-		System.out.println("Enter User Name ");
-		inputUserName=String_input.next();
-		System.out.println("Enter the Symbol of Company u want ");
-		inputSymbolName=String_input.next();
-		System.out.println("Enter the share of Company u want to buy ");
-		inputAmount=int_input.nextInt();
-	}
-
-	// to buy the shares from the company
-	public static void buyCompany() throws Exception
-	{
-		UserInput();
+}
+		/*
+		 * userAccs=objectMapper.readValue(userFile,UserAccounts.class);
+		//Calculating the Share that can be purchased for the amount
+		Stock shareList=objectMapper.readValue(companyFile,Stock.class);
+		List<Share> shares=shareList.getShares();
+		Share shareOfComp=shares.stream().filter(shr->shr.getSymbol().equals(symbol)).findFirst().get();
+		double sh=shareOfComp.getPrice();
+		
+		 //Upating the shares that he bought
+		 List<UserAccount> userAccounts=userAccs.getUserAccs();
+		 UserAccount userAcc=userAccounts.stream().filter(usr-> usr.getName().equals(name)).findFirst().get();
+		 Share share=userAcc.getShares().stream().findFirst().get();
+		 share.setShare(share.getShare()+amt);
+		 share.setPrice(sh);
+		 share.setSymbol(symbol);
+		 accDollars=share.getShare()*share.getPrice();
+		 save();
+		 */
+	/*	for(Stock stock:stocks)
+		{
+			if(stock.getSymbol().equals(inputSymbol))
+			{
+				if(stock.getShare()>=inputShare)
+				{
+					stock.setShare(stock.getShare()-inputShare);
+					for(UserAccount usr:allUser)
+					{
+						if(usr.getUserName().equals(inputUserName))
+						{
+							System.out.println("working");
+							UserAccount use=getUserUpdate();
+							System.out.println("working");
+							allUsers.getUserAccount().add(use);
+							System.out.println("working");
+							obj1.writeValue(file1,allUsers);
+							System.out.println("working");
+						}
+					}
+				}
+				else
+					System.out.println("Shares not available");
+			}
+		}*/
+	/*	stockMaintain.UserInput();
 		Transactions transactions=objectMapper.readValue(transactionFile, Transactions.class);
 		//Stack<Transaction> stackTransact=new Stack<Transaction>();
 		Stock stock=objectMapper.readValue(companyFile, Stock.class);
@@ -99,8 +139,8 @@ public class StockMaintain
 		List<Share> shrs=stock.getShares();                                    
 		// to get the chare object from company pojo
 		Share shr=shrs.stream().filter(shar->shar.getSymbol().equals(inputSymbolName)).findFirst().get();
-		if (shr.getSymbol().equals(inputSymbolName)) 
-		{
+		if (shr.getSymbol().equals(inputSymbolName)) */
+		/*{
 
 			if (shr.getShare()>=inputAmount) 
 			{
@@ -118,183 +158,14 @@ public class StockMaintain
 				buyTransactionList.add(buyTransacts);
 
 				transactions.setBuyTransacts(buyTransactionList);
-				objectMapper.writeValue(/*"/home/admin1/Desktop/vidya/JAVA_PROGRAM/src/com/bridgelabz/oops/jsonTransaction.json")*/transactionFile, transactions);
-			}
-		} else
-		{
+				objectMapper.writeValue(/*"/home/admin1/Desktop/vidya/JAVA_PROGRAM/src/com/bridgelabz/oops/jsonTransaction.json")transactionFile, transactions);*/
+			//}
+//		} else? //
+		/*{
 			System.out.println("Share not Available");
 		}
 
 		objectMapper.writeValue(companyFile,stock);
 
-	}
+	}*/
 
-	// to sell the shares to the company
-	public static void SellShare() throws Exception
-	{
-		UserInput();
-		Transactions transactions=objectMapper.readValue(transactionFile, Transactions.class);
-		Stock stock=objectMapper.readValue(companyFile, Stock.class);
-		StockAccount stockAcc=new StockAccount("/home/admin1/Desktop/vidya/JAVA_PROGRAM/src/com/bridgelabz/oops/useraccount.json");
-		List<Share> shrs=stock.getShares();
-		// to get the chare object from company pojo
-		Share shr=shrs.stream().filter(shar->shar.getSymbol().equals(inputSymbolName)).findFirst().get();
-		if (shr.getSymbol().equals(inputSymbolName))
-		{
-
-			if (shr.getShare()>=inputAmount) 
-			{
-				shr.setShare(shr.getShare()+inputAmount);//Updating the company Share
-				stockAcc.sell(inputUserName,inputAmount,inputSymbolName);
-
-				Transaction transaction=new Transaction();
-				List<SellTransact> sellTransactionList=transactions.getSelltransacts();
-				transaction.setUserName(inputUserName);
-				transaction.setShare(inputAmount);
-				transaction.setSymbol(inputSymbolName);
-
-				SellTransact sellTransacts=new SellTransact();
-				sellTransacts.setTransaction(transaction);
-				sellTransactionList.add(sellTransacts);
-
-				transactions.setSelltransacts(sellTransactionList);
-				objectMapper.writeValue(transactionFile,transactions);
- 			
-				//objectMapper.writeValue(/*transactionFile*/"/home/admin1/Desktop/vidya/JAVA_PROGRAM/src/com/bridgelabz/oops/jsonTransaction.json",transactions);
-			}
-		} else
-		{
-			System.out.println("Share not Available");
-		}
-
-		objectMapper.writeValue(companyFile, stock);
-		stockAcc.printReport();
-
-	}
-
-	// To List the company pojo
-	public static void ViewCompanyList() throws IOException
-	{
-		Stock stock=objectMapper.readValue(companyFile, Stock.class);
-		int count=0;
-		System.out.println();
-		System.out.println("value of each STOCK REPORT:");
-		System.out.println();
-		while (count != stock.getShares().size())
-		{
-			Share st=stock.getShares().get(count);
-			System.out.print(st.getName() + " ");
-			double eachStock=(st.getShare()*st.getPrice());
-			System.out.println(eachStock);
-			count++;
-		}
-		System.out.println();
-	}
-
-	/*
-	 * To take input from user for product properties
-	 * 
-	 * @return is class type of productproperty
-	 */
-	public static Share input() 
-	{
-		Share share=new Share();
-		
-		System.out.println("Enter the name of Share  ");
-		String inputShareName=String_input.next();
-		share.setName(inputShareName);
-		System.out.println("Enter the Share ");
-		int inputShare=int_input.nextInt();
-		share.setShare(inputShare);
-		System.out.println("Enter the Price ");
-		double inputShareprice=int_input.nextDouble();
-		share.setPrice(inputShareprice);
-		System.out.println("Enter the Symbol ");
-		String inputShareSymbol=String_input.next();
-		share.setSymbol(inputShareSymbol);
-	
-		return share;
-
-	}
-
-	// To create an Account for an User
-	public static void createUserAccount() throws IOException 
-	{
-		try{
-			UserAccounts userAccs=objectMapper.readValue(userFile, UserAccounts.class);
-		
-			
-			UserAccount userAcc=new UserAccount();
-			System.out.println("Enter User name");
-			String userName=String_input.next();
-			userAcc.setName(userName);
-			// To Set the product properties
-			Share share=input();
-			// Adding properties to list
-			List<Share> shares=new ArrayList<Share>();
-			shares.add(share);
-
-			// add properties to the product
-			userAcc.setShares(shares);
-
-			List<UserAccount> userAccounts=userAccs.getUserAccs();
-			userAccounts.add(userAcc);
-
-			// adding list of products to inventry
-			userAccs.setUserAccs(userAccounts);
-
-			// Writtting to a file
-			objectMapper.writeValue(userFile,userAccs);
-			
-
-		} catch (Exception e)
-		{
-			System.out.println("Input Incorrect");
-
-		}
-	}
-
-	// To create an Account for an Company
-	public static void createCompany() throws IOException
-	{
-		try {
-			Stock stock=objectMapper.readValue(companyFile, Stock.class);
-
-			// To Set the product properties
-			Share share=input();
-
-			// Adding properties to list
-
-			// adding every product to list
-			// getting product from file as list and saving in product list
-			List<Share> shrs=stock.getShares();
-			shrs.add(share);
-
-			// adding list of products to inventry
-			stock.setShares(shrs);
-
-			// Writtting to a file
-			objectMapper.writeValue(companyFile,stock);
-
-		} catch (Exception e) 
-		{
-			System.out.println("Input Incorrect");
-
-		}
-	}
-
-	public StockMaintain()
-	{
-		super();
-	}
-
-	public static void removeCompany(File file) throws IOException 
-	{	
-		System.out.println("Enter the Symbol");
-		String inputSymbol=String_input.next();
-		Stock stock=objectMapper.readValue(companyFile, Stock.class);
-		stock.getShares().removeIf(sym->sym.getSymbol().equals(inputSymbol));
-		objectMapper.writeValue(file,stock);
-
-	}
-}

@@ -1,4 +1,4 @@
-package com.bridgeit.objectorientedprogram;
+package com.bridgeit.oops;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,32 +14,28 @@ public class RegularExpression {
 		
 		Scanner sc1=new Scanner(System.in);
 		System.out.println("Enter your name");
-		String Name=sc1.next();
-		if(Pattern.matches("[a-zA-Z]{2,}", Name))
+		String name=sc1.next();
+		if(Pattern.matches("[a-zA-Z]{2,}",name))
 		{
-			input=input.replaceAll("<<name>>", Name);
+			input=input.replaceAll("<<name>>",name);
 		}
-		
-		
 		System.out.println("Enter your Full Name");
-		String full_name=sc1.next();
-		if(Pattern.matches("[a-zA-Z]+",full_name ))
+		String fullName=sc1.next();
+		if(Pattern.matches("[a-zA-Z]+",fullName))
 		{
-			input=input.replaceAll("<<full name>>", full_name);
+			input=input.replaceAll("<<full name>>", fullName);
 		}
-		
 		System.out.println("Enter your Contact Number");
-		long temp_num=sc1.nextLong();
-		String number=String.valueOf(temp_num);
+		long temp=sc1.nextLong();
+		String number=String.valueOf(temp);
 		if(Pattern.matches("[789][0-9]{9}",number))
 		{
 			input=input.replaceAll("<<91-xxxxxxxxxx>>",number);
 		}
-		
-		Date currentDate = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		String date = sdf.format(currentDate);
-		input=input.replace("<<xx/xx/xxxx>>", date);
+		Date currentDate=new Date();
+		SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+		String date=sdf.format(currentDate);
+		input=input.replace("<<xx/xx/xxxx>>",date);
 		System.out.println(input);
 		sc1.close();
 	}

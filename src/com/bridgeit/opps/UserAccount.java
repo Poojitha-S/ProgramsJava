@@ -1,33 +1,25 @@
-package com.bridgeit.opps;
+package com.bridgeit.oops;
 
-import java.util.List;
-
-public class UserAccount
-{
-	private String name;
-	private List<Share> shares;
-
-	public String getName() 
-	{
-		return name;
+public class UserAccount {
+	private String userName;
+	private int share;
+	private double price;
+	public String getUserName() {
+		return userName;
 	}
-
-	public void setName(String name)
-	{
-		this.name=name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-
-	public List<Share> getShares() 
-	{
-		return shares;
+	public int getShare() {
+		return share;
 	}
-
-	public void setShares(List<Share> shares) 
-	{
-		this.shares=shares;
+	public void setShare(int share) {
+		this.share = share;
 	}
-
-		
-
-	
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
 }

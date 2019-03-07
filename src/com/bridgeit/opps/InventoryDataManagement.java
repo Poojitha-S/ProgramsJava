@@ -1,4 +1,4 @@
-package com.bridgeit.objectorientedprogram;
+package com.bridgeit.oops;
 
 import java.io.File;
 
@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class InventoryDataManagement {
@@ -13,9 +14,9 @@ public class InventoryDataManagement {
 	public static void main(String[] args) throws IOException  {
 		try {
 			Scanner sc=new Scanner(System.in);
-			ObjectMapper obj=new ObjectMapper();
-			File file=new File("/home/admin1/Desktop/Files/Inventory.json");
-			ProductList productList=obj.readValue(file,ProductList.class);
+			ObjectMapper obj=new ObjectMapper();//Maps json file fields to setter getter of POJO class
+			File file=new File("/home/admin1/Desktop/JavaPrograms/src/Files/Inventory.json");
+			ProductList productList=obj.readValue(file,ProductList.class);//reads from JSON file
 			Product product=new Product();
 			System.out.println("Enter the product name ");
 			String inputProductName=sc.nextLine();
@@ -23,16 +24,15 @@ public class InventoryDataManagement {
 			if(inputProductName.equals("rice")||inputProductName.equals("pulses")||inputProductName.equals("wheats"))
 			{
 				product.setProduct(inputProductName);
-				ProductProperties productProperty= input();
+				ProductProperties input= input();
 				List<ProductProperties> properties= new ArrayList<ProductProperties>();
-				properties.add(productProperty);
+				properties.add(input);//properties added to list
 				product.setProperties(properties);
 				List<Product> products=productList.getInventory();
 				products.add(product);
 				productList.setInventory(products);
 				obj.writeValue(file, productList);
-				ObjectMapper objectMapper2 =new ObjectMapper();
-				System.out.println(objectMapper2.writerWithDefaultPrettyPrinter().writeValueAsString(productList));
+				System.out.println(obj.writerWithDefaultPrettyPrinter().writeValueAsString(productList));
 			}
 			else 
 			{
@@ -44,7 +44,7 @@ public class InventoryDataManagement {
 			e.printStackTrace();
 			System.out.println("Input Incorrect ");
 		}
-
+	
 
 	}
 	public static ProductProperties input() {

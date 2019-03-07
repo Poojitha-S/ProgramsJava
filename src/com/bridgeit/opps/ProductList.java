@@ -1,4 +1,4 @@
-package com.bridgeit.objectorientedprogram;
+package com.bridgeit.oops;
 
 import java.util.List;
 

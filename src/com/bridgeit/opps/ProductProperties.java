@@ -1,22 +1,21 @@
-package com.bridgeit.objectorientedprogram;
+package com.bridgeit.oops;
 
-public class Properties 
+public class ProductProperties 
 {
 	private String name;
-	private int share;
+	private double weight;
 	private double price;
-	
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getShare() {
-		return share;
+	public double getWeight() {
+		return weight;
 	}
-	public void setShare(int share) {
-		this.share = share;
+	public void setWeight(double weight) {
+		this.weight = weight;
 	}
 	public double getPrice() {
 		return price;
@@ -24,4 +23,5 @@ public class Properties
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	
 }
