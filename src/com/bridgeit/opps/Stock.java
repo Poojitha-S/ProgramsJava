@@ -1,34 +1,41 @@
 package com.bridgeit.oops;
 
-public class Stock 
-{
-	private String name;
-	private int share;
-	private double price;
-	private String symbol;
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getShare() {
-		return share;
-	}
-	public void setShare(int share) {
-		this.share = share;
-	}
-	public double getPrice() {
-		return price;
-	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
 
-	public String getSymbol() {
-		return symbol;
-	}
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
+import java.util.Scanner;
+
+public class Stock
+{
+	public static void main(String[] args) throws Exception 
+	{		
+		Scanner scanner = new Scanner(System.in);
+		Utility utility = new Utility();
+		StockMethods stock = new StockMethods();
+		int choice;
+		do
+		{
+			System.out.println("Enter your choice");
+			System.out.println("Press 1 : To create account");
+			System.out.println("Press 2 : Buy shares");
+			System.out.println("Press 3 : Sell shres");
+			System.out.println("Press 4 : Print report");
+			
+			choice = utility.inputInteger();			
+			switch(choice)
+			{
+				case 1 : 
+					stock.addDetails();
+					break;
+				case 2 : 
+					stock.buyStock();
+					break;
+				case 3:
+					stock.sellStock();
+					break;
+				case 4 : 
+					stock.printReport();	
+				default :
+					break;			
+			}
+		}while(choice!=5);
 	}
 }
