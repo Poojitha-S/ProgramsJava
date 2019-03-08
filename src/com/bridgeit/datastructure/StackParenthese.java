@@ -41,6 +41,6 @@ public class StackParenthese
 			System.out.println("Expression is balanced");
 		else
 			System.out.println("Expression id not balanced");
-		
+		sc.close();
 	}
 }

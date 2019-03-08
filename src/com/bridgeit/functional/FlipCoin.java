@@ -31,7 +31,7 @@ public class FlipCoin
 		{
 			System.out.println("Input must be integer");
 			System.out.println();
-		}
+		}sc.close();
 	}
 }
 

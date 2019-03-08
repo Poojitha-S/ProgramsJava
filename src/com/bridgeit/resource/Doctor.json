@@ -1,0 +1,31 @@
+[ {
+  "name" : "Akul",
+  "id" : 1,
+  "specialization" : "8AM",
+  "avl" : "Plastic Surgeons"
+}, {
+  "name" : "Vinayak",
+  "id" : 2,
+  "specialization" : "2PM",
+  "avl" : "Cardiologists"
+}, {
+  "name" : "Preetham",
+  "id" : 3,
+  "specialization" : "6PM",
+  "avl" : "Oncologists"
+}, {
+  "name" : "Vijeetha",
+  "id" : 4,
+  "specialization" : "7AM",
+  "avl" : "Osteopaths"
+}, {
+  "name" : "Amrutha",
+  "id" : 5,
+  "specialization" : "4PM",
+  "avl" : "Pediatricians"
+}, {
+  "name" : "Manjunath",
+  "id" : 6,
+  "specialization" : "4PM",
+  "avl" : "Pulmonologists"
+} ]

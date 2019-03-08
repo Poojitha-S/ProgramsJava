@@ -61,6 +61,6 @@ public class Quadratic
 		else
 		{
 			System.out.println("roots are imaginary");
-		}			
+		}sc.close();			
 	}
 }

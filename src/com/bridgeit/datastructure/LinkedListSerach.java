@@ -59,7 +59,7 @@ public class LinkedListSerach
 				}
 			}
 		}
-
+		sc.close();
 	}
 
 }

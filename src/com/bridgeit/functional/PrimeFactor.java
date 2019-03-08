@@ -12,7 +12,6 @@ public class PrimeFactor {
 		Scanner sc=new Scanner(System.in);
 		try
 		{
-			String input;
 			System.out.println("Enter the number:");
 			int	n=sc.nextInt();
 			System.out.println(Utility.primeFactors(n));
@@ -21,7 +20,7 @@ public class PrimeFactor {
 		{
 			System.out.println("Input must be integer");
 			System.out.println();
-		}
+		}sc.close();
 	}
 
 }

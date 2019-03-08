@@ -1,0 +1,26 @@
+[ {
+  "name" : "Poojitha",
+  "id" : 1,
+  "mobNumber" : "9035037263",
+  "age" : 23
+}, {
+  "name" : "Megha",
+  "id" : 2,
+  "mobNumber" : "9007265422",
+  "age" : 21
+}, {
+  "name" : "Aish",
+  "id" : 3,
+  "mobNumber" : "7828192033",
+  "age" : 14
+}, {
+  "name" : "Akshatha",
+  "id" : 4,
+  "mobNumber" : "7896352145",
+  "age" : 25
+}, {
+  "name" : "Sushmitha",
+  "id" : 5,
+  "mobNumber" : "9035037263",
+  "age" : 21
+} ]

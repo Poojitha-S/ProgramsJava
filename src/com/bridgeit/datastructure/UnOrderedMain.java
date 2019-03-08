@@ -83,7 +83,7 @@ public class UnOrderedMain
 						e.printStackTrace();
 				}
 			}
-		}
+		}sc.close();
 	}
 }
 

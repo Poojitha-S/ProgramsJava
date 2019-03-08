@@ -1,4 +1,4 @@
-package com.bridgeit.oops;
+package com.bridgeit.dto;
 
 public class ProductProperties 
 {
@@ -23,5 +23,4 @@ public class ProductProperties
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	
 }

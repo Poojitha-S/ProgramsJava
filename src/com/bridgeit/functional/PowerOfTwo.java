@@ -1,6 +1,5 @@
 package com.bridgeit.functional;
 
-import java.awt.List;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -25,6 +24,6 @@ public class PowerOfTwo
 		{
 			System.out.println("Input must be integer");
 			System.out.println();
-		}
+		}sc.close();
 	}
 }

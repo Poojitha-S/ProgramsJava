@@ -27,7 +27,7 @@ public class CalenderUsingQueue
 			noOfDays[1]=29;//assigning 29 to represent leap year
 		for (int i = 1; i <= noOfDays[month]; i++)//Loops no of days in a moth time  
 		{  			
-			subQueue.enQueue(i);//a			
+			subQueue.enQueue(i);
 			if ((i + count) % 7 == 0 || i==noOfDays[month] ) 
 			{
 				Queue.enQueue(subQueue);
@@ -46,5 +46,6 @@ public class CalenderUsingQueue
 			System.out.println();
 		}
 		System.out.println("---------------------------------------------------");
+		sc.close();
 	}
 }	

@@ -30,6 +30,6 @@ public class StopWatch
 						break;
 			}
 		}while(ch<4);
-		
+		sc.close();
 	}
 }

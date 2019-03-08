@@ -15,5 +15,6 @@ public class PrimeNumber
 		List<Integer> num=new ArrayList<Integer>();
 		num=Utility.prime(0,range);
 		Utility.twoDPrime(num);
+		sc.close();
 	}
 }

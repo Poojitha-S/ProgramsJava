@@ -1,4 +1,4 @@
-package com.bridgeit.oops;
+package com.bridgeit.dto;
 
 
 public class UserPojo 

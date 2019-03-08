@@ -1,11 +1,12 @@
-package com.bridgeit.oops;
+package com.bridgeit.dto;
 
 public class CompanyPojo
 {
 	private String stockName;
 	private String stockSymbol;
 	private String noOFShare;
-	private String sharePrice;public CompanyPojo(){}
+	private String sharePrice;
+	public CompanyPojo(){}
 	public CompanyPojo(String stockName, String stockSymbol, String noOFShare, String sharePrice) {
 		super();
 		this.stockName = stockName;

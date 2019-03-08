@@ -1,10 +1,9 @@
 package com.bridgeit.datastructure; 
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
+
 
 import com.bridgeit.util.*;
 
@@ -20,6 +19,6 @@ public class PrimeAnagram
 		List<Integer> li=new ArrayList<Integer>();
 		li=Utility.checkPrimeAnagram(num);
 		Utility.twoDPrime(li);
-
+		sc.close();
 	}
 }

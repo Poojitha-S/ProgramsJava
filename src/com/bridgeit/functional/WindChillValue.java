@@ -16,7 +16,7 @@ public class WindChillValue
 			System.out.println("Invalid input");
 		else
 			System.out.println("Wind chill value is: "+res);
-
+		sc.close();
 	}
 
 }

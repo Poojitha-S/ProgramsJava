@@ -31,6 +31,6 @@ public class PrimeAnagramUsingQueue
 		System.out.println("Order of deletion:");
 		for(int i=0;i<count;i++)
 			System.out.print(list.deQueue()+"->");
-		
+		sc.close();
 	}
 }

@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.bridgeit.dto.Product;
+import com.bridgeit.dto.ProductList;
+import com.bridgeit.dto.ProductProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class InventoryDataManagement {

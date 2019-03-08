@@ -84,7 +84,7 @@ public class OrderedMain
 						e.printStackTrace();
 				}
 			}
-		}
+		}sc.close();
 	}
 }
 

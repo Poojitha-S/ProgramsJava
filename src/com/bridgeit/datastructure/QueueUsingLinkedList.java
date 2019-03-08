@@ -51,9 +51,14 @@ public class QueueUsingLinkedList
 		{
 			while(temp!= null)
 			{
-				System.out.print(temp.getData()+"->");
+				System.out.print(temp.getData()+"\t");
 				temp =temp.getNext();
 			}
 		}
+	}
+	public boolean isEmpty() {
+		if(rear==null && front==null)
+			return true;
+		return false;
 	}	
 }

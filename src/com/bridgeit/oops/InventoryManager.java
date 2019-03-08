@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.Scanner;
 import org.codehaus.jackson.map.ObjectMapper;
 
+import com.bridgeit.dto.InventoryFactory;
+import com.bridgeit.dto.Product;
+import com.bridgeit.dto.ProductProperties;
+
 public class InventoryManager 
 {
 	public static void main(String[] args) throws IOException 

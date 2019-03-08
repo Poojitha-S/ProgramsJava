@@ -36,6 +36,6 @@ public class LeapYear {
 		{
 			System.out.println("Input must be integer");
 			System.out.println();
-		}
+		}sc.close();
 	}
 }

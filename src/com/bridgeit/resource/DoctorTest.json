@@ -1,0 +1,16 @@
+[ {
+  "name" : "VENKATESH",
+  "id" : 1,
+  "specialization" : "NUEROLOGIST",
+  "avl" : "6AM"
+}, {
+  "name" : "MURLI",
+  "id" : 4,
+  "specialization" : "CHILD SPECIALIST",
+  "avl" : "6PM"
+}, {
+  "name" : "MARUTHI",
+  "id" : 5,
+  "specialization" : "HEART SPECIALIST",
+  "avl" : "8PM"
+} ]
